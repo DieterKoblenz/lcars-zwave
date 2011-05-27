@@ -1,4 +1,0 @@
-C:\Users\Kevin\Private Synced Documents\LCARSHome\RssReader\bin\Release\RssReader.dll
-C:\Users\Kevin\Private Synced Documents\LCARSHome\RssReader\bin\Release\doc.xml
-C:\Users\Kevin\Private Synced Documents\LCARSHome\RssReader\obj\Release\ResolveAssemblyReference.cache
-C:\Users\Kevin\Private Synced Documents\LCARSHome\RssReader\obj\Release\RssReader.dll
