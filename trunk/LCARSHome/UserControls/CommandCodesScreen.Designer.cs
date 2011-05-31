@@ -58,6 +58,7 @@
             this.elbo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.elbo2.ForeColor = System.Drawing.Color.White;
             this.elbo2.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo2.InAlert = false;
             this.elbo2.Location = new System.Drawing.Point(2, 3);
             this.elbo2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo2.Name = "elbo2";
@@ -76,6 +77,7 @@
             this.label1.Font = new System.Drawing.Font("LCARS", 48F);
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Function = Streambolics.Lcars.Function.Database;
+            this.label1.InAlert = false;
             this.label1.LeftSegments = 0;
             this.label1.Location = new System.Drawing.Point(276, 53);
             this.label1.Name = "label1";
@@ -94,7 +96,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Blink = false;
-            this.button1.BlinkInterval = 1000;
+            this.button1.BlinkInterval = 500;
             this.button1.BlinkState = false;
             this.button1.ChangeOnHover = false;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -102,6 +104,7 @@
             this.button1.Font = new System.Drawing.Font("LCARS", 14F);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button1.InAlert = false;
             this.button1.LeftSegments = 0;
             this.button1.Location = new System.Drawing.Point(501, 3);
             this.button1.Name = "button1";
@@ -121,7 +124,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Black;
             this.button2.Blink = false;
-            this.button2.BlinkInterval = 1000;
+            this.button2.BlinkInterval = 500;
             this.button2.BlinkState = false;
             this.button2.ChangeOnHover = false;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -129,6 +132,7 @@
             this.button2.Font = new System.Drawing.Font("LCARS", 28F);
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button2.InAlert = false;
             this.button2.LeftSegments = 0;
             this.button2.Location = new System.Drawing.Point(331, 293);
             this.button2.Name = "button2";
@@ -149,7 +153,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Black;
             this.button3.Blink = false;
-            this.button3.BlinkInterval = 1000;
+            this.button3.BlinkInterval = 500;
             this.button3.BlinkState = false;
             this.button3.ChangeOnHover = false;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -157,6 +161,7 @@
             this.button3.Font = new System.Drawing.Font("LCARS", 28F);
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button3.InAlert = false;
             this.button3.LeftSegments = 0;
             this.button3.Location = new System.Drawing.Point(477, 292);
             this.button3.Name = "button3";
@@ -177,7 +182,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Black;
             this.button4.Blink = false;
-            this.button4.BlinkInterval = 1000;
+            this.button4.BlinkInterval = 500;
             this.button4.BlinkState = false;
             this.button4.ChangeOnHover = false;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -185,6 +190,7 @@
             this.button4.Font = new System.Drawing.Font("LCARS", 28F);
             this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button4.InAlert = false;
             this.button4.LeftSegments = 0;
             this.button4.Location = new System.Drawing.Point(623, 293);
             this.button4.Name = "button4";
@@ -205,7 +211,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.Black;
             this.button5.Blink = false;
-            this.button5.BlinkInterval = 1000;
+            this.button5.BlinkInterval = 500;
             this.button5.BlinkState = false;
             this.button5.ChangeOnHover = false;
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -213,6 +219,7 @@
             this.button5.Font = new System.Drawing.Font("LCARS", 28F);
             this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button5.InAlert = false;
             this.button5.LeftSegments = 0;
             this.button5.Location = new System.Drawing.Point(477, 380);
             this.button5.Name = "button5";
@@ -233,7 +240,7 @@
             // 
             this.button6.BackColor = System.Drawing.Color.Black;
             this.button6.Blink = false;
-            this.button6.BlinkInterval = 1000;
+            this.button6.BlinkInterval = 500;
             this.button6.BlinkState = false;
             this.button6.ChangeOnHover = false;
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -241,6 +248,7 @@
             this.button6.Font = new System.Drawing.Font("LCARS", 28F);
             this.button6.ForeColor = System.Drawing.Color.Black;
             this.button6.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button6.InAlert = false;
             this.button6.LeftSegments = 0;
             this.button6.Location = new System.Drawing.Point(331, 381);
             this.button6.Name = "button6";
@@ -261,7 +269,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.Black;
             this.button7.Blink = false;
-            this.button7.BlinkInterval = 1000;
+            this.button7.BlinkInterval = 500;
             this.button7.BlinkState = false;
             this.button7.ChangeOnHover = false;
             this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -269,6 +277,7 @@
             this.button7.Font = new System.Drawing.Font("LCARS", 28F);
             this.button7.ForeColor = System.Drawing.Color.Black;
             this.button7.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button7.InAlert = false;
             this.button7.LeftSegments = 0;
             this.button7.Location = new System.Drawing.Point(623, 380);
             this.button7.Name = "button7";
@@ -289,7 +298,7 @@
             // 
             this.button8.BackColor = System.Drawing.Color.Black;
             this.button8.Blink = false;
-            this.button8.BlinkInterval = 1000;
+            this.button8.BlinkInterval = 500;
             this.button8.BlinkState = false;
             this.button8.ChangeOnHover = false;
             this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -297,6 +306,7 @@
             this.button8.Font = new System.Drawing.Font("LCARS", 28F);
             this.button8.ForeColor = System.Drawing.Color.Black;
             this.button8.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button8.InAlert = false;
             this.button8.LeftSegments = 0;
             this.button8.Location = new System.Drawing.Point(331, 468);
             this.button8.Name = "button8";
@@ -317,7 +327,7 @@
             // 
             this.button9.BackColor = System.Drawing.Color.Black;
             this.button9.Blink = false;
-            this.button9.BlinkInterval = 1000;
+            this.button9.BlinkInterval = 500;
             this.button9.BlinkState = false;
             this.button9.ChangeOnHover = false;
             this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -325,6 +335,7 @@
             this.button9.Font = new System.Drawing.Font("LCARS", 28F);
             this.button9.ForeColor = System.Drawing.Color.Black;
             this.button9.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button9.InAlert = false;
             this.button9.LeftSegments = 0;
             this.button9.Location = new System.Drawing.Point(477, 468);
             this.button9.Name = "button9";
@@ -345,7 +356,7 @@
             // 
             this.button10.BackColor = System.Drawing.Color.Black;
             this.button10.Blink = false;
-            this.button10.BlinkInterval = 1000;
+            this.button10.BlinkInterval = 500;
             this.button10.BlinkState = false;
             this.button10.ChangeOnHover = false;
             this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -353,6 +364,7 @@
             this.button10.Font = new System.Drawing.Font("LCARS", 28F);
             this.button10.ForeColor = System.Drawing.Color.Black;
             this.button10.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button10.InAlert = false;
             this.button10.LeftSegments = 0;
             this.button10.Location = new System.Drawing.Point(623, 468);
             this.button10.Name = "button10";
@@ -373,7 +385,7 @@
             // 
             this.button11.BackColor = System.Drawing.Color.Black;
             this.button11.Blink = false;
-            this.button11.BlinkInterval = 1000;
+            this.button11.BlinkInterval = 500;
             this.button11.BlinkState = false;
             this.button11.ChangeOnHover = false;
             this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -381,6 +393,7 @@
             this.button11.Font = new System.Drawing.Font("LCARS", 28F);
             this.button11.ForeColor = System.Drawing.Color.Black;
             this.button11.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button11.InAlert = false;
             this.button11.LeftSegments = 0;
             this.button11.Location = new System.Drawing.Point(477, 556);
             this.button11.Name = "button11";
@@ -401,7 +414,7 @@
             // 
             this.button12.BackColor = System.Drawing.Color.Black;
             this.button12.Blink = false;
-            this.button12.BlinkInterval = 1000;
+            this.button12.BlinkInterval = 500;
             this.button12.BlinkState = false;
             this.button12.ChangeOnHover = false;
             this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -409,6 +422,7 @@
             this.button12.Font = new System.Drawing.Font("LCARS", 28F);
             this.button12.ForeColor = System.Drawing.Color.Black;
             this.button12.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button12.InAlert = false;
             this.button12.LeftSegments = 0;
             this.button12.Location = new System.Drawing.Point(477, 644);
             this.button12.Name = "button12";
@@ -430,7 +444,7 @@
             // 
             this.button13.BackColor = System.Drawing.Color.Black;
             this.button13.Blink = false;
-            this.button13.BlinkInterval = 1000;
+            this.button13.BlinkInterval = 500;
             this.button13.BlinkState = false;
             this.button13.ChangeOnHover = false;
             this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -438,6 +452,7 @@
             this.button13.Font = new System.Drawing.Font("LCARS", 28F);
             this.button13.ForeColor = System.Drawing.Color.Black;
             this.button13.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button13.InAlert = false;
             this.button13.LeftSegments = 0;
             this.button13.Location = new System.Drawing.Point(623, 644);
             this.button13.Name = "button13";
@@ -469,7 +484,7 @@
             // 
             this.button14.BackColor = System.Drawing.Color.Black;
             this.button14.Blink = false;
-            this.button14.BlinkInterval = 1000;
+            this.button14.BlinkInterval = 500;
             this.button14.BlinkState = false;
             this.button14.ChangeOnHover = false;
             this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -477,6 +492,7 @@
             this.button14.Font = new System.Drawing.Font("LCARS", 28F);
             this.button14.ForeColor = System.Drawing.Color.Black;
             this.button14.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button14.InAlert = false;
             this.button14.LeftSegments = 0;
             this.button14.Location = new System.Drawing.Point(331, 644);
             this.button14.Name = "button14";

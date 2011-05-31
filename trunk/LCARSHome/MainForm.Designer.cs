@@ -37,6 +37,7 @@
             this.commandCodesScreen1 = new LCARSHome.UserControls.CommandCodesScreen();
             this.homeScreen1 = new LCARSHome.UserControls.HomeScreen();
             this.lockScreen1 = new LCARSHome.UserControls.LockScreen();
+            this.engineeringScreen1 = new LCARSHome.UserControls.EngineeringScreen();
             this.SuspendLayout();
             // 
             // backgroundWorker1
@@ -60,6 +61,7 @@
             // communicationScreen1
             // 
             this.communicationScreen1.BackColor = System.Drawing.Color.Black;
+            this.communicationScreen1.Font = new System.Drawing.Font("LCARS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.communicationScreen1.Location = new System.Drawing.Point(0, 2);
             this.communicationScreen1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.communicationScreen1.Name = "communicationScreen1";
@@ -103,12 +105,23 @@
             this.lockScreen1.TabIndex = 0;
             this.lockScreen1.Visible = false;
             // 
+            // engineeringScreen1
+            // 
+            this.engineeringScreen1.BackColor = System.Drawing.Color.Black;
+            this.engineeringScreen1.Font = new System.Drawing.Font("LCARS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.engineeringScreen1.Location = new System.Drawing.Point(0, 2);
+            this.engineeringScreen1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.engineeringScreen1.Name = "engineeringScreen1";
+            this.engineeringScreen1.Size = new System.Drawing.Size(1024, 768);
+            this.engineeringScreen1.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(3F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.engineeringScreen1);
             this.Controls.Add(this.securityScreen1);
             this.Controls.Add(this.communicationScreen1);
             this.Controls.Add(this.commandCodesScreen1);
@@ -137,6 +150,7 @@
         internal Streambolics.Lcars.Sound sound1;
         private System.Windows.Forms.Timer timer1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private UserControls.EngineeringScreen engineeringScreen1;
 
 
 

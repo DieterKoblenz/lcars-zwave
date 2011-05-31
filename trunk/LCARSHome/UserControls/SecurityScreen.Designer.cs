@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.lblAlarmWarning = new Streambolics.Lcars.Label();
             this.label1 = new Streambolics.Lcars.Label();
             this.elbo9 = new Streambolics.Lcars.Elbo();
             this.elbo8 = new Streambolics.Lcars.Elbo();
@@ -54,7 +55,6 @@
             this.elbo2 = new Streambolics.Lcars.Elbo();
             this.button2 = new Streambolics.Lcars.Button();
             this.sound1 = new Streambolics.Lcars.Sound();
-            this.lblAlarmWarning = new Streambolics.Lcars.Label();
             this.SuspendLayout();
             // 
             // webBrowser1
@@ -70,6 +70,27 @@
             this.webBrowser1.Size = new System.Drawing.Size(240, 222);
             this.webBrowser1.TabIndex = 80;
             // 
+            // lblAlarmWarning
+            // 
+            this.lblAlarmWarning.BackColor = System.Drawing.Color.Black;
+            this.lblAlarmWarning.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
+            this.lblAlarmWarning.Font = new System.Drawing.Font("LCARS", 50F);
+            this.lblAlarmWarning.ForeColor = System.Drawing.Color.White;
+            this.lblAlarmWarning.Function = Streambolics.Lcars.Function.RedAlert;
+            this.lblAlarmWarning.InAlert = false;
+            this.lblAlarmWarning.LeftSegments = 0;
+            this.lblAlarmWarning.Location = new System.Drawing.Point(232, 3);
+            this.lblAlarmWarning.Name = "lblAlarmWarning";
+            this.lblAlarmWarning.Online = true;
+            this.lblAlarmWarning.RightSegments = 0;
+            this.lblAlarmWarning.RoundedLeft = false;
+            this.lblAlarmWarning.RoundedRight = false;
+            this.lblAlarmWarning.Size = new System.Drawing.Size(640, 84);
+            this.lblAlarmWarning.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+            this.lblAlarmWarning.TabIndex = 81;
+            this.lblAlarmWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAlarmWarning.Visible = false;
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
@@ -77,6 +98,7 @@
             this.label1.Font = new System.Drawing.Font("LCARS", 16F);
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Function = Streambolics.Lcars.Function.Ancillary;
+            this.label1.InAlert = false;
             this.label1.LeftSegments = 0;
             this.label1.Location = new System.Drawing.Point(2, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -101,6 +123,7 @@
             this.elbo9.Font = new System.Drawing.Font("LCARS", 14F);
             this.elbo9.ForeColor = System.Drawing.Color.White;
             this.elbo9.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo9.InAlert = false;
             this.elbo9.Location = new System.Drawing.Point(211, 259);
             this.elbo9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo9.Name = "elbo9";
@@ -122,6 +145,7 @@
             this.elbo8.Font = new System.Drawing.Font("LCARS", 14F);
             this.elbo8.ForeColor = System.Drawing.Color.White;
             this.elbo8.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo8.InAlert = false;
             this.elbo8.Location = new System.Drawing.Point(211, 161);
             this.elbo8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo8.Name = "elbo8";
@@ -137,14 +161,15 @@
             // 
             this.button9.BackColor = System.Drawing.Color.Black;
             this.button9.Blink = false;
-            this.button9.BlinkInterval = 1000;
-            this.button9.BlinkState = false;
+            this.button9.BlinkInterval = 500;
+            this.button9.BlinkState = true;
             this.button9.ChangeOnHover = false;
             this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button9.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
             this.button9.Font = new System.Drawing.Font("LCARS", 14F);
             this.button9.ForeColor = System.Drawing.Color.Black;
             this.button9.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button9.InAlert = false;
             this.button9.LeftSegments = 0;
             this.button9.Location = new System.Drawing.Point(211, 215);
             this.button9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -165,14 +190,15 @@
             // 
             this.button8.BackColor = System.Drawing.Color.Black;
             this.button8.Blink = false;
-            this.button8.BlinkInterval = 1000;
-            this.button8.BlinkState = false;
+            this.button8.BlinkInterval = 500;
+            this.button8.BlinkState = true;
             this.button8.ChangeOnHover = false;
             this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button8.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
             this.button8.Font = new System.Drawing.Font("LCARS", 14F);
             this.button8.ForeColor = System.Drawing.Color.Black;
             this.button8.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button8.InAlert = false;
             this.button8.LeftSegments = 0;
             this.button8.Location = new System.Drawing.Point(159, 215);
             this.button8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -193,14 +219,15 @@
             // 
             this.button7.BackColor = System.Drawing.Color.Black;
             this.button7.Blink = false;
-            this.button7.BlinkInterval = 1000;
-            this.button7.BlinkState = false;
+            this.button7.BlinkInterval = 500;
+            this.button7.BlinkState = true;
             this.button7.ChangeOnHover = false;
             this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
             this.button7.Font = new System.Drawing.Font("LCARS", 14F);
             this.button7.ForeColor = System.Drawing.Color.Black;
             this.button7.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button7.InAlert = false;
             this.button7.LeftSegments = 0;
             this.button7.Location = new System.Drawing.Point(122, 215);
             this.button7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -227,6 +254,7 @@
             this.elbo7.Font = new System.Drawing.Font("LCARS", 14F);
             this.elbo7.ForeColor = System.Drawing.Color.White;
             this.elbo7.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo7.InAlert = false;
             this.elbo7.Location = new System.Drawing.Point(111, 161);
             this.elbo7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo7.Name = "elbo7";
@@ -248,6 +276,7 @@
             this.elbo6.Font = new System.Drawing.Font("LCARS", 14F);
             this.elbo6.ForeColor = System.Drawing.Color.White;
             this.elbo6.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo6.InAlert = false;
             this.elbo6.Location = new System.Drawing.Point(111, 259);
             this.elbo6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo6.Name = "elbo6";
@@ -269,6 +298,7 @@
             this.elbo10.Font = new System.Drawing.Font("LCARS", 14F);
             this.elbo10.ForeColor = System.Drawing.Color.White;
             this.elbo10.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo10.InAlert = false;
             this.elbo10.Location = new System.Drawing.Point(458, 662);
             this.elbo10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo10.Name = "elbo10";
@@ -290,6 +320,7 @@
             this.elbo4.Font = new System.Drawing.Font("LCARS", 14F);
             this.elbo4.ForeColor = System.Drawing.Color.White;
             this.elbo4.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo4.InAlert = false;
             this.elbo4.Location = new System.Drawing.Point(2, 626);
             this.elbo4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo4.Name = "elbo4";
@@ -305,7 +336,7 @@
             // 
             this.button15.BackColor = System.Drawing.Color.Black;
             this.button15.Blink = false;
-            this.button15.BlinkInterval = 1500;
+            this.button15.BlinkInterval = 500;
             this.button15.BlinkState = false;
             this.button15.ChangeOnHover = false;
             this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -313,6 +344,7 @@
             this.button15.Font = new System.Drawing.Font("LCARS", 14F);
             this.button15.ForeColor = System.Drawing.Color.Black;
             this.button15.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button15.InAlert = false;
             this.button15.LeftSegments = 1;
             this.button15.Location = new System.Drawing.Point(2, 588);
             this.button15.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -335,7 +367,7 @@
             // 
             this.btnRedAlert.BackColor = System.Drawing.Color.Black;
             this.btnRedAlert.Blink = true;
-            this.btnRedAlert.BlinkInterval = 1500;
+            this.btnRedAlert.BlinkInterval = 100;
             this.btnRedAlert.BlinkState = false;
             this.btnRedAlert.ChangeOnHover = false;
             this.btnRedAlert.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -343,6 +375,7 @@
             this.btnRedAlert.Font = new System.Drawing.Font("LCARS", 14F);
             this.btnRedAlert.ForeColor = System.Drawing.Color.Black;
             this.btnRedAlert.Function = Streambolics.Lcars.Function.Ancillary;
+            this.btnRedAlert.InAlert = false;
             this.btnRedAlert.LeftSegments = 1;
             this.btnRedAlert.Location = new System.Drawing.Point(2, 398);
             this.btnRedAlert.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -366,7 +399,7 @@
             // 
             this.btnGreenAlert.BackColor = System.Drawing.Color.Black;
             this.btnGreenAlert.Blink = false;
-            this.btnGreenAlert.BlinkInterval = 1500;
+            this.btnGreenAlert.BlinkInterval = 500;
             this.btnGreenAlert.BlinkState = false;
             this.btnGreenAlert.ChangeOnHover = false;
             this.btnGreenAlert.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -374,6 +407,7 @@
             this.btnGreenAlert.Font = new System.Drawing.Font("LCARS", 14F);
             this.btnGreenAlert.ForeColor = System.Drawing.Color.Black;
             this.btnGreenAlert.Function = Streambolics.Lcars.Function.Ancillary;
+            this.btnGreenAlert.InAlert = false;
             this.btnGreenAlert.LeftSegments = 1;
             this.btnGreenAlert.Location = new System.Drawing.Point(2, 512);
             this.btnGreenAlert.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -396,7 +430,7 @@
             // 
             this.btnBlueAlert.BackColor = System.Drawing.Color.Black;
             this.btnBlueAlert.Blink = false;
-            this.btnBlueAlert.BlinkInterval = 1500;
+            this.btnBlueAlert.BlinkInterval = 500;
             this.btnBlueAlert.BlinkState = false;
             this.btnBlueAlert.ChangeOnHover = false;
             this.btnBlueAlert.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -404,6 +438,7 @@
             this.btnBlueAlert.Font = new System.Drawing.Font("LCARS", 14F);
             this.btnBlueAlert.ForeColor = System.Drawing.Color.Black;
             this.btnBlueAlert.Function = Streambolics.Lcars.Function.Ancillary;
+            this.btnBlueAlert.InAlert = false;
             this.btnBlueAlert.LeftSegments = 1;
             this.btnBlueAlert.Location = new System.Drawing.Point(2, 474);
             this.btnBlueAlert.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -426,7 +461,7 @@
             // 
             this.btnYellowAlert.BackColor = System.Drawing.Color.Black;
             this.btnYellowAlert.Blink = false;
-            this.btnYellowAlert.BlinkInterval = 1500;
+            this.btnYellowAlert.BlinkInterval = 500;
             this.btnYellowAlert.BlinkState = false;
             this.btnYellowAlert.ChangeOnHover = false;
             this.btnYellowAlert.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -434,6 +469,7 @@
             this.btnYellowAlert.Font = new System.Drawing.Font("LCARS", 14F);
             this.btnYellowAlert.ForeColor = System.Drawing.Color.Black;
             this.btnYellowAlert.Function = Streambolics.Lcars.Function.Ancillary;
+            this.btnYellowAlert.InAlert = false;
             this.btnYellowAlert.LeftSegments = 1;
             this.btnYellowAlert.Location = new System.Drawing.Point(2, 436);
             this.btnYellowAlert.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -456,7 +492,7 @@
             // 
             this.button10.BackColor = System.Drawing.Color.Black;
             this.button10.Blink = false;
-            this.button10.BlinkInterval = 1500;
+            this.button10.BlinkInterval = 500;
             this.button10.BlinkState = false;
             this.button10.ChangeOnHover = false;
             this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -464,6 +500,7 @@
             this.button10.Font = new System.Drawing.Font("LCARS", 14F);
             this.button10.ForeColor = System.Drawing.Color.Black;
             this.button10.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button10.InAlert = false;
             this.button10.LeftSegments = 1;
             this.button10.Location = new System.Drawing.Point(2, 550);
             this.button10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -492,6 +529,7 @@
             this.elbo5.Font = new System.Drawing.Font("LCARS", 14F);
             this.elbo5.ForeColor = System.Drawing.Color.White;
             this.elbo5.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo5.InAlert = false;
             this.elbo5.Location = new System.Drawing.Point(2, 316);
             this.elbo5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo5.Name = "elbo5";
@@ -507,7 +545,7 @@
             // 
             this.button6.BackColor = System.Drawing.Color.Black;
             this.button6.Blink = false;
-            this.button6.BlinkInterval = 1000;
+            this.button6.BlinkInterval = 500;
             this.button6.BlinkState = false;
             this.button6.ChangeOnHover = false;
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -515,6 +553,7 @@
             this.button6.Font = new System.Drawing.Font("LCARS", 14F);
             this.button6.ForeColor = System.Drawing.Color.Black;
             this.button6.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button6.InAlert = false;
             this.button6.LeftSegments = 2;
             this.button6.Location = new System.Drawing.Point(320, 275);
             this.button6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -536,7 +575,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.Black;
             this.button5.Blink = false;
-            this.button5.BlinkInterval = 1000;
+            this.button5.BlinkInterval = 500;
             this.button5.BlinkState = false;
             this.button5.ChangeOnHover = false;
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -544,6 +583,7 @@
             this.button5.Font = new System.Drawing.Font("LCARS", 14F);
             this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button5.InAlert = false;
             this.button5.LeftSegments = 2;
             this.button5.Location = new System.Drawing.Point(320, 237);
             this.button5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -560,12 +600,13 @@
             this.button5.Tag = "http://feeds.feedburner.com/blogspot/MKuf?format=rss";
             this.button5.Text = "SECURITY OVERRIDE";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Black;
             this.button4.Blink = false;
-            this.button4.BlinkInterval = 1000;
+            this.button4.BlinkInterval = 500;
             this.button4.BlinkState = false;
             this.button4.ChangeOnHover = false;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -573,6 +614,7 @@
             this.button4.Font = new System.Drawing.Font("LCARS", 14F);
             this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button4.InAlert = false;
             this.button4.LeftSegments = 2;
             this.button4.Location = new System.Drawing.Point(320, 199);
             this.button4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -594,7 +636,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Black;
             this.button3.Blink = false;
-            this.button3.BlinkInterval = 1000;
+            this.button3.BlinkInterval = 500;
             this.button3.BlinkState = false;
             this.button3.ChangeOnHover = false;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -602,6 +644,7 @@
             this.button3.Font = new System.Drawing.Font("LCARS", 14F);
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button3.InAlert = false;
             this.button3.LeftSegments = 2;
             this.button3.Location = new System.Drawing.Point(320, 161);
             this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -623,15 +666,16 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.Blink = true;
-            this.button1.BlinkInterval = 1000;
-            this.button1.BlinkState = true;
+            this.button1.Blink = false;
+            this.button1.BlinkInterval = 500;
+            this.button1.BlinkState = false;
             this.button1.ChangeOnHover = false;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
             this.button1.Font = new System.Drawing.Font("LCARS", 14F);
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button1.InAlert = false;
             this.button1.LeftSegments = 0;
             this.button1.Location = new System.Drawing.Point(917, 3);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -659,6 +703,7 @@
             this.elbo2.Font = new System.Drawing.Font("LCARS", 14F);
             this.elbo2.ForeColor = System.Drawing.Color.White;
             this.elbo2.Function = Streambolics.Lcars.Function.Ancillary;
+            this.elbo2.InAlert = false;
             this.elbo2.Location = new System.Drawing.Point(190, 75);
             this.elbo2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo2.Name = "elbo2";
@@ -674,7 +719,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Black;
             this.button2.Blink = false;
-            this.button2.BlinkInterval = 1000;
+            this.button2.BlinkInterval = 500;
             this.button2.BlinkState = false;
             this.button2.ChangeOnHover = false;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -682,6 +727,7 @@
             this.button2.Font = new System.Drawing.Font("LCARS", 14F);
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button2.InAlert = false;
             this.button2.LeftSegments = 0;
             this.button2.Location = new System.Drawing.Point(2, 93);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -696,26 +742,6 @@
             this.button2.SubFunction = Streambolics.Lcars.SubFunction.Elbo;
             this.button2.TabIndex = 28;
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // lblAlarmWarning
-            // 
-            this.lblAlarmWarning.BackColor = System.Drawing.Color.Black;
-            this.lblAlarmWarning.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
-            this.lblAlarmWarning.Font = new System.Drawing.Font("LCARS", 50F);
-            this.lblAlarmWarning.ForeColor = System.Drawing.Color.White;
-            this.lblAlarmWarning.Function = Streambolics.Lcars.Function.RedAlert;
-            this.lblAlarmWarning.LeftSegments = 0;
-            this.lblAlarmWarning.Location = new System.Drawing.Point(232, 3);
-            this.lblAlarmWarning.Name = "lblAlarmWarning";
-            this.lblAlarmWarning.Online = true;
-            this.lblAlarmWarning.RightSegments = 0;
-            this.lblAlarmWarning.RoundedLeft = false;
-            this.lblAlarmWarning.RoundedRight = false;
-            this.lblAlarmWarning.Size = new System.Drawing.Size(640, 84);
-            this.lblAlarmWarning.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
-            this.lblAlarmWarning.TabIndex = 81;
-            this.lblAlarmWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblAlarmWarning.Visible = false;
             // 
             // SecurityScreen
             // 

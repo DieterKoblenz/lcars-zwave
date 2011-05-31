@@ -7,20 +7,98 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.Speech.Recognition;
 
 namespace LCARSHome
 {
     public partial class MainForm : Form
     {
+        public static SpeechRecognitionEngine engine = new SpeechRecognitionEngine();
+        public static StringBuilder output = new StringBuilder();
+        public static int IdleBooster = 0;
+
         public MainForm()
         {
             InitializeComponent();
+            engine.LoadGrammar(new DictationGrammar());
+            engine.SetInputToDefaultAudioDevice();
+            engine.RecognizeCompleted += new EventHandler<RecognizeCompletedEventArgs>(engine_RecognizeCompleted);
         }
         private int _timer1tickcount = 1;
         private int _SoundRepeat = 0;
         private string _SoundFile = "";
         internal Status _CurrentStatus=Status.Green;
         internal Alarm _alarmStatus = Alarm.Disarmed;
+
+        void engine_RecognizeCompleted(object sender, RecognizeCompletedEventArgs e)
+        {
+            output.Clear();
+            RecognitionResult result = e.Result;
+            try
+            {
+                foreach (RecognizedWordUnit word in result.Words)
+                {
+                    output.Append(word.Text + " ");
+                }
+                if (output.ToString().Contains("computer") || output.ToString().Contains("pewter"))
+                {
+                    IdleBooster = (int)Win32.GetIdleTime() +60;
+                    if (output.ToString().Contains("red") || output.ToString().Contains("rattler"))
+                    {
+                        BusinessLogic.SetStatus(Status.Red);
+                    }
+                    else if (output.ToString().Contains("intruder"))
+                    {
+                        BusinessLogic.SetStatus(Status.Blue);
+                    }
+                    else if (output.ToString().Contains("yellow") || output.ToString().Contains("eller"))
+                    {
+                        BusinessLogic.SetStatus(Status.Yellow);
+                    }
+                    else if (output.ToString().Contains("stand") || output.ToString().Contains("cancel")||output.ToString().Contains("stand out") || output.ToString().Contains("standout")
+                        || output.ToString().Contains("stand then") || output.ToString().Contains("green"))
+                    {
+                        BusinessLogic.SetStatus(Status.Green);
+                    }
+                    else if (output.ToString().Contains("listen"))
+                    {
+                        this.sound1.PlayOnce("Resources\\Affirmative.wav");
+                    }
+                    else if (output.ToString().Contains("security"))
+                    {
+                        Program._MainForm.LoadScreen(Screen.SecurityScreen, Screen.NotAScreen);
+                    }
+                    else if (output.ToString().Contains("communication"))
+                    {
+                        Program._MainForm.LoadScreen(Screen.CommunicationScreen, Screen.NotAScreen);
+                    }
+                    else if (output.ToString().Contains("lock") | output.ToString().Contains("command functions"))
+                    {
+                        Program._MainForm.LoadScreen(Screen.LockScreen, Screen.NotAScreen);
+                    }
+                    else if (output.ToString().Contains("home") || output.ToString().Contains("main"))
+                    {
+                        Program._MainForm.LoadScreen(Screen.HomeScreen, Screen.NotAScreen);
+                    }
+                    else if (output.ToString().Contains("shut down") || output.ToString().Contains("exit"))
+                    {
+                        BusinessLogic.Exit();
+                    }
+                    else if (output.ToString().Contains("engine"))
+                    {
+                        Program._MainForm.LoadScreen(Screen.EngineeringScreen, Screen.NotAScreen);
+                    }
+                    else
+                    {
+                        this.sound1.PlayOnce("Resources\\RestateCommand.wav");
+                        Console.WriteLine("Unrecognized Command: " + output.ToString());
+                    }
+
+                }
+            }
+            catch { }
+            engine.RecognizeAsync();
+        }
 
         public void LoadScreen(Screen ToScreen, Screen FromScreen)
         {
@@ -33,6 +111,7 @@ namespace LCARSHome
             this.timer1.Interval = 2000;
             this.timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
+            engine.RecognizeAsync();
         }
         internal void SetStatus(Status status)
         {
@@ -41,6 +120,7 @@ namespace LCARSHome
             {
                 case Status.Green:
                     {
+                        IdleBooster = 0;
                         _SoundRepeat = 0;
                         //TODO: Add Events
                         break;
@@ -138,6 +218,7 @@ namespace LCARSHome
             this.lockScreen1.Visible = false;
             this.homeScreen1.Visible = false;
             this.securityScreen1.Visible = false;
+            this.engineeringScreen1.Visible = false;
 
             this.commandCodesScreen1.FromScreen = FromScreen;
             this.commandCodesScreen1.ToScreen = ToScreen;
@@ -238,6 +319,11 @@ namespace LCARSHome
                                     this.securityScreen1.Visible = true;
                                     break;
                                 }
+                            case Screen.EngineeringScreen:
+                                {
+                                    this.engineeringScreen1.Visible = true;
+                                    break;
+                                }
                         }
                         break;
                     }
@@ -247,7 +333,7 @@ namespace LCARSHome
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
  
-                while (Win32.GetIdleTime()/1000 < Properties.Settings.Default.IdleTimeoutInSeconds)
+                while (Win32.GetIdleTime()/1000 < IdleBooster + Properties.Settings.Default.IdleTimeoutInSeconds)
                 {
                     Thread.Sleep(1000);
                     Console.WriteLine((Win32.GetIdleTime()/1000).ToString());
@@ -261,7 +347,7 @@ namespace LCARSHome
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if(!Program._MainForm.lockScreen1.Visible)
+            if (!Program._MainForm.lockScreen1.Visible && Properties.Settings.Default.IdleTimerEnabled)
                 Program._MainForm.LoadScreen(Screen.LockScreen, Screen.NotAScreen);
         }
     }

@@ -6,6 +6,9 @@ using System.IO;
 using System.Timers;
 using System.ComponentModel;
 using System.Threading;
+using System.Windows.Forms;
+using System.Collections;
+using Streambolics.Lcars;
 
 namespace LCARSHome
 {
@@ -15,6 +18,30 @@ namespace LCARSHome
         internal static BackgroundWorker bwArm = new BackgroundWorker();
         private static Alarm _PendingAlarmStatus;
 
+        public static List<LcarsControl> GetAllAlertables(IList ctrls)
+        {
+            List<LcarsControl> RetCtrls = new List<LcarsControl>();
+            foreach (Control ctl in ctrls)
+            {
+                if (ctl.GetType().Namespace=="Streambolics.Lcars")
+                    try
+                    {
+                        RetCtrls.Add((LcarsControl)ctl);
+                    }
+                    catch { }
+                List<LcarsControl> SubCtrls = GetAllAlertables(ctl.Controls);
+                RetCtrls.AddRange(SubCtrls);
+            }
+            return RetCtrls;
+        }
+
+        internal static void Exit()
+        {
+            Program._MainForm.sound1.PlayOnce("Resources\\AutoShutdown.wav");
+            Thread.Sleep(3000);
+            Application.Exit();
+        }
+
         internal static void SetStatus(Status status)
         {
             Program._MainForm.SetStatus(status);
@@ -23,6 +50,7 @@ namespace LCARSHome
             Program._MainForm.commandCodesScreen1.SetStatus(status);
             Program._MainForm.homeScreen1.SetStatus(status);
             Program._MainForm.lockScreen1.SetStatus(status);
+            #region Status
             switch (status)
             {
                 case Status.Red:
@@ -33,6 +61,14 @@ namespace LCARSHome
                         {
                             SetAlarm(Alarm.Sounding);
                         }
+                        List<LcarsControl> alertables = GetAllAlertables(Program._MainForm.Controls);
+                        foreach (LcarsControl ctl in alertables)
+                        {
+                            ctl.InAlert = true;
+                            ctl.Invalidate();
+                        }
+
+                        Program._MainForm.lockScreen1.label1.Text = "RED ALERT - SYSTEM LOCKED";
                         break;
                     }
                 case Status.Blue:
@@ -69,10 +105,16 @@ namespace LCARSHome
 
                         Program._MainForm.sound1.Stop();
                         Program._MainForm.lockScreen1.label1.Text = "COMMAND FUNCTIONS OFFLINE";
-                        
+                        List<LcarsControl> alertables = GetAllAlertables(Program._MainForm.Controls);
+                        foreach (LcarsControl ctl in alertables)
+                        {
+                            ctl.InAlert = false;
+                            ctl.Invalidate();
+                        }
                         break;
                     }
             }
+            #endregion
         }
 
         static void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)

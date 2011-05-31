@@ -42,9 +42,11 @@
             this.elbo2.ArcInternal = 50;
             this.elbo2.BackColor = System.Drawing.Color.Black;
             this.elbo2.ColWidth = 104;
+            this.elbo2.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
             this.elbo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.elbo2.ForeColor = System.Drawing.Color.White;
             this.elbo2.Function = Streambolics.Lcars.Function.Secondary;
+            this.elbo2.InAlert = false;
             this.elbo2.Location = new System.Drawing.Point(2, 3);
             this.elbo2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo2.Name = "elbo2";
@@ -70,9 +72,11 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
             this.label1.Font = new System.Drawing.Font("LCARS", 48F);
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Function = Streambolics.Lcars.Function.Database;
+            this.label1.InAlert = false;
             this.label1.LeftSegments = 0;
             this.label1.Location = new System.Drawing.Point(287, 656);
             this.label1.Name = "label1";
@@ -90,14 +94,15 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Blink = false;
-            this.button1.BlinkInterval = 1000;
+            this.button1.BlinkInterval = 500;
             this.button1.BlinkState = false;
             this.button1.ChangeOnHover = false;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            
+            this.button1.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
             this.button1.Font = new System.Drawing.Font("LCARS", 14F);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Function = Streambolics.Lcars.Function.Secondary;
+            this.button1.InAlert = false;
             this.button1.LeftSegments = 0;
             this.button1.Location = new System.Drawing.Point(956, 3);
             this.button1.Name = "button1";

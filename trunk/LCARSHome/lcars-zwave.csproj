@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,6 +71,12 @@
     </Compile>
     <Compile Include="UserControls\CommunicationScreen.Designer.cs">
       <DependentUpon>CommunicationScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\EngineeringScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EngineeringScreen.Designer.cs">
+      <DependentUpon>EngineeringScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LockScreen.cs">
       <SubType>UserControl</SubType>
@@ -108,6 +115,9 @@
     <EmbeddedResource Include="UserControls\CommunicationScreen.resx">
       <DependentUpon>CommunicationScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EngineeringScreen.resx">
+      <DependentUpon>EngineeringScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LockScreen.resx">
       <DependentUpon>LockScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +139,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LCARS\LCARS.csproj">
+    <ProjectReference Include="..\LCARS\lcars.csproj">
       <Project>{C9E5ED9D-20E5-4A9D-AAAE-57D493FF39E9}</Project>
-      <Name>LCARS</Name>
+      <Name>lcars</Name>
     </ProjectReference>
     <ProjectReference Include="..\RssReader\RssReader.csproj">
       <Project>{43B0944D-5178-448E-B871-502255C93D83}</Project>
@@ -244,6 +254,17 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SpeechLib">
+      <Guid>{C866CA3A-32F7-11D2-9602-00C04F8EE628}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

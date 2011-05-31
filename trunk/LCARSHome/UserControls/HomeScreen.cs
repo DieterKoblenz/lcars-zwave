@@ -58,8 +58,7 @@ namespace LCARSHome.UserControls
 
         private void button14_Click(object sender, EventArgs e)
         {
-            Thread.Sleep(3000);
-            Application.Exit();
+            BusinessLogic.Exit();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -88,6 +87,22 @@ namespace LCARSHome.UserControls
         private void button9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Program._MainForm.LoadScreen(Screen.EngineeringScreen, Screen.HomeScreen);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if(Program._MainForm._CurrentStatus!=Status.Red)
+                BusinessLogic.SetStatus(Status.Red);
         }
 
     }
