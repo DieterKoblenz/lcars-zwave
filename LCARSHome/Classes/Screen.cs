@@ -19,6 +19,7 @@ namespace LCARSHome
         CommandCodesScreen,
         CommunicationScreen,
         SecurityScreen,
+        EngineeringScreen,
         NotAScreen
     }
 }

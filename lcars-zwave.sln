@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCARSHome", "LCARSHome\LCARSHome.csproj", "{EB124160-CCE0-4BD2-8FEE-B7EF40A415EE}"
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lcars-zwave", "LCARSHome\lcars-zwave.csproj", "{EB124160-CCE0-4BD2-8FEE-B7EF40A415EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCARS", "LCARS\LCARS.csproj", "{C9E5ED9D-20E5-4A9D-AAAE-57D493FF39E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lcars", "LCARS\lcars.csproj", "{C9E5ED9D-20E5-4A9D-AAAE-57D493FF39E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RssReader", "RssReader\RssReader.csproj", "{43B0944D-5178-448E-B871-502255C93D83}"
 EndProject

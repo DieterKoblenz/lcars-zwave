@@ -13,7 +13,7 @@ namespace LCARSHome.UserControls
     public partial class SecurityScreen : UserControl
     {
         private Status _CurrentStatus = Status.Green;
-
+        private bool _Override = false;
         public SecurityScreen()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace LCARSHome.UserControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (_CurrentStatus!=Status.Red && _CurrentStatus!=Status.Blue)
+            if ((_CurrentStatus!=Status.Red && _CurrentStatus!=Status.Blue)||(_Override))
                 Program._MainForm.LoadScreen(Screen.HomeScreen, Screen.SecurityScreen);
         }
 
@@ -43,46 +43,40 @@ namespace LCARSHome.UserControls
         }
         internal void SetStatus(Status status)
         {
-            btnGreenAlert.Blink = false;
-            btnRedAlert.Blink = false;
-            btnYellowAlert.Blink = false;
-            btnBlueAlert.Blink = false;
-            button10.Blink = false;
-            button15.Blink = false;
+            //btnGreenAlert.Blink = true;
+            //btnRedAlert.Blink = true;
+            //btnYellowAlert.Blink = true;
+            //btnBlueAlert.Blink = true;
+            //button10.Blink = true;
+            //button15.Blink = true;
             this._CurrentStatus = status;
             switch (status)
             {
                 case Status.Green:
                     {
-                        btnGreenAlert.Blink = true;
+                        //btnGreenAlert.Blink = true;
                         webBrowser1.Navigate("about:<HtmlDocument><body scroll='no' bgcolor='black'><img src='" + Directory.GetCurrentDirectory() + "\\Resources\\Green-alert.gif' height='202' width='250'> </img></body></html>");  
                         break;
                     }
                 case Status.Yellow:
                     {
-                        btnYellowAlert.Blink = true;
+                        //btnYellowAlert.Blink = true;
                         webBrowser1.Navigate("about:<HtmlDocument><body scroll='no' bgcolor='black'><img src='" + Directory.GetCurrentDirectory() + "\\Resources\\Yellow-alert.gif' height='202' width='250'> </img></body></html>");
                         break;
                     }
                 case Status.Red:
                     {
-                        btnRedAlert.Blink = true;
+                        //btnRedAlert.Blink = true;
                         webBrowser1.Navigate("about:<HtmlDocument><body scroll='no' bgcolor='black'><img src='" + Directory.GetCurrentDirectory() + "\\Resources\\red-alert.gif' height='202' width='250'> </img></body></html>");
                         break;
                     }
                 case Status.Blue:
                     {
-                        btnBlueAlert.Blink = true;
+                        //btnBlueAlert.Blink = true;
                         webBrowser1.Navigate("about:<HtmlDocument><body scroll='no' bgcolor='black'><img src='" + Directory.GetCurrentDirectory() + "\\Resources\\ST_Bluealert.gif' height='202' width='250'> </img></body></html>");
                         break;
                     }
             }
-            btnGreenAlert.Invalidate();
-            btnRedAlert.Invalidate();
-            btnYellowAlert.Invalidate();
-            btnBlueAlert.Invalidate();
-            button10.Invalidate();
-            button15.Invalidate();
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -121,7 +115,7 @@ namespace LCARSHome.UserControls
             if (_CurrentStatus == Status.Green && !lblAlarmWarning.Visible)
             {
                 BusinessLogic.SetAlarm(Alarm.Home);
-                button10.Blink = true;
+                //button10.Blink = true;
             }
         }
 
@@ -130,7 +124,7 @@ namespace LCARSHome.UserControls
             if (_CurrentStatus == Status.Green && !lblAlarmWarning.Visible)
             {
                 BusinessLogic.SetAlarm(Alarm.Away);
-                button15.Blink = true;
+                //button15.Blink = true;
             }
         }
 
@@ -151,6 +145,11 @@ namespace LCARSHome.UserControls
                         break;
                     }
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            _Override = !_Override;
         }
     }
 }

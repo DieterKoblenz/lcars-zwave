@@ -58,5 +58,23 @@ namespace LCARSHome.Properties {
                 return ((int)(this["IdleTimeoutInSeconds"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ThinkStick")]
+        public string ControllerType {
+            get {
+                return ((string)(this["ControllerType"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IdleTimerEnabled {
+            get {
+                return ((bool)(this["IdleTimerEnabled"]));
+            }
+        }
     }
 }

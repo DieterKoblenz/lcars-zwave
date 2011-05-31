@@ -23,9 +23,9 @@ namespace Streambolics.Lcars
     public class Button : Label
     {
         // Fields
-        private bool _Blink = false;
+        private bool _Blink = true;
         private bool _BlinkState = false;
-        private int _BlinkInterval = 1000;
+        private int _BlinkInterval = 500;
         private int _SoundRepeat = 1;
 
         private string _SoundFile = "Resources/Beep.wav";
@@ -136,8 +136,11 @@ namespace Streambolics.Lcars
 
         private void Timer1Tick (object sender, EventArgs e)
         {
-            _BlinkState = !_BlinkState;
-            Invalidate ();
+            if (this.InAlert || !this.Online)
+            {
+                _BlinkState = !_BlinkState;
+                Invalidate();
+            }
         }
 
         // Properties
