@@ -61,7 +61,7 @@ namespace LCARSHome.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ThinkStick")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ControlThink")]
         public string ControllerType {
             get {
                 return ((string)(this["ControllerType"]));

@@ -51,14 +51,22 @@ namespace LCARSHome
                     {
                         BusinessLogic.SetStatus(Status.Blue);
                     }
-                    else if (output.ToString().Contains("yellow") || output.ToString().Contains("eller"))
+                    else if (output.ToString().Contains("yellow") || output.ToString().Contains("eller") || output.ToString().Contains("shields"))
                     {
-                        BusinessLogic.SetStatus(Status.Yellow);
+                        //BusinessLogic.SetStatus(Status.Yellow);
+                        BusinessLogic.SetAlarm(Alarm.Home);
                     }
                     else if (output.ToString().Contains("stand") || output.ToString().Contains("cancel")||output.ToString().Contains("stand out") || output.ToString().Contains("standout")
                         || output.ToString().Contains("stand then") || output.ToString().Contains("green"))
                     {
-                        BusinessLogic.SetStatus(Status.Green);
+                        if (output.ToString().Contains("omega three"))
+                        {
+                            BusinessLogic.SetStatus(Status.Green);  
+                        }
+                        else
+                        {
+                            sound1.PlayOnce("Resources\\AccessDenied.wav");
+                        }
                     }
                     else if (output.ToString().Contains("listen"))
                     {

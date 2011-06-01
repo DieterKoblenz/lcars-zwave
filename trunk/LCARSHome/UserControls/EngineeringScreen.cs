@@ -13,10 +13,39 @@ namespace LCARSHome.UserControls
     public partial class EngineeringScreen : UserControl
     {
         private Status _CurrentStatus = Status.Green;
+        private BackgroundWorker _bw = new BackgroundWorker();
+        private string _DiagnosticResult;
 
         public EngineeringScreen()
         {
             InitializeComponent();
+            _bw.WorkerReportsProgress = true;
+            _bw.DoWork += new DoWorkEventHandler(_bw_DoWork);
+            _bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(_bw_RunWorkerCompleted);
+            _bw.ProgressChanged += new ProgressChangedEventHandler(_bw_ProgressChanged);
+        }
+
+        void _bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void _bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            sound1.PlayOnce("Resources\\DiagnosticComplete.wav");
+            Thread.Sleep(2000);
+            MessageBox.Show(_DiagnosticResult.ToString());
+        }
+
+        void _bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int x = 0; x < 20; x++)
+            {
+                byte NodeID = (byte)x;
+                sb.Append(Zwave.Diagnostic(NodeID) + Environment.NewLine);
+            }
+            _DiagnosticResult = sb.ToString();
         }
         internal void SetStatus(Status status)
         {
@@ -71,6 +100,16 @@ namespace LCARSHome.UserControls
         private void button34_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            subSystemControls1.Visible = !subSystemControls1.Visible;
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            _bw.RunWorkerAsync();
         }
 
     }

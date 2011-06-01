@@ -93,191 +93,209 @@ namespace Streambolics.Lcars
                     }
                 default:
                     {
-                        switch (_Function)
+                        switch (_Online)
                         {
-                            #region Primary
-                            case Function.Primary:
+                            case false:
                                 {
-                                    switch (_SubFunction)
+                                    switch (_UseAlternateColor)
                                     {
-                                        case SubFunction.Elbo:
-                                            return Color.FromArgb(0xF1, 0xDF, 0x6F);
-                                        case SubFunction.Offline:
-                                            {
-                                                switch (_UseAlternateColor)
-                                                {
-                                                    case true:
-                                                        return Color.FromArgb(0x33, 0x00, 0x00);
-                                                    default:
-                                                        return Color.FromArgb(0xFF, 0x00, 0x00);
-                                                }
-                                            }
-                                        case SubFunction.Unavailable:
-                                            return Color.FromArgb(0x33, 0x99, 0xFF);
-                                        case SubFunction.Primary:
-                                            return Color.FromArgb(0x99, 0xCC, 0xFF);
-                                        case SubFunction.Color1:
-                                            return Color.FromArgb(0xFF, 0xFF, 0x33);
-                                        case SubFunction.Color2:
-                                            return Color.FromArgb(0xFF, 0xFF, 0xCC);
+                                        case true:
+                                            return Color.FromArgb(0x33, 0x00, 0x00);
+                                        default:
+                                            return Color.FromArgb(0xFF, 0x00, 0x00);
                                     }
-                                    break;
                                 }
-                            #endregion
-                            #region Secondary
-                            case Function.Secondary:
+                            default:
                                 {
-                                    switch (_SubFunction)
+                                    switch (_Function)
                                     {
-                                        case SubFunction.Elbo:
-                                            return Color.FromArgb(0xB1, 0x95, 0x7A);
-                                        case SubFunction.Offline:
+                                        #region Primary
+                                        case Function.Primary:
                                             {
-                                                switch (_UseAlternateColor)
+                                                switch (_SubFunction)
                                                 {
-                                                    case true:
-                                                        return Color.FromArgb(0x33, 0x00, 0x00);
-                                                    default:
-                                                        return Color.FromArgb(0xFF, 0x00, 0x00);
-                                                }
-                                            }
-                                        case SubFunction.Unavailable:
-                                            return Color.FromArgb(0x53, 0x55, 0xDE);
-                                        case SubFunction.Primary:
-                                            return Color.FromArgb(0x99, 0xCC, 0xFF);
-                                        case SubFunction.Color1:
-                                            return Color.FromArgb(0xFF, 0xCC, 0x00);
-                                        case SubFunction.Color2:
-                                            return Color.FromArgb(0xFF, 0xFF, 0x99);
-                                    }
-                                    break;
-                                }
-                            #endregion
-                            #region Ancillary
-                            case Function.Ancillary:
-                                {
-                                    switch (_SubFunction)
-                                    {
-                                        case SubFunction.Elbo:
-                                            return Color.FromArgb(0xF1, 0xB1, 0xAF);
-                                        case SubFunction.Offline:
-                                            {
-                                                switch (_UseAlternateColor)
-                                                {
-                                                    case true:
-                                                        return Color.FromArgb(0x33, 0x00, 0x00);
-                                                    default:
-                                                        return Color.FromArgb(0xFF, 0x00, 0x00);
-                                                }
-                                            }
-                                        case SubFunction.Unavailable:
-                                            return Color.FromArgb(0xA2, 0x7F, 0xA5);
-                                        case SubFunction.Primary:
-                                            return Color.FromArgb(0xAD, 0xAC, 0xD8);
-                                        case SubFunction.Color1:
-                                            return Color.FromArgb(0xFF, 0xFF, 0x33);
-                                        case SubFunction.Color2:
-                                            return Color.FromArgb(0xE6, 0xB0, 0xD4);
-                                    }
-                                    break;
-                                }
-                            #endregion
-                            #region Database
-                            case Function.Database:
-                                {
-                                    switch (_SubFunction)
-                                    {
-                                        case SubFunction.Elbo:
-                                            return Color.FromArgb(0xCC, 0x66, 0x66);
-                                        case SubFunction.Offline:
-                                            {
-                                                switch (_UseAlternateColor)
-                                                {
-                                                    case true:
-                                                        return Color.FromArgb(0x33, 0x00, 0x00);
-                                                    default:
-                                                        return Color.FromArgb(0xFF, 0x00, 0x00);
-                                                }
-                                            }
-                                        case SubFunction.Unavailable:
-                                            return Color.FromArgb(0xCC, 0xCC, 0xFF);
-                                        case SubFunction.Primary:
-                                            return Color.FromArgb(0x99, 0xCC, 0xFF);
-                                        case SubFunction.Color1:
-                                            return Color.FromArgb(0xFF, 0x99, 0x00);
-                                        case SubFunction.Color2:
-                                            return Color.Black;
-                                    }
-                                    break;
-                                }
-                            #endregion
-                            #region MultiDisplay
-                            case Function.MultiDisplay:
-                                {
-                                    switch (_SubFunction)
-                                    {
-                                        case SubFunction.Elbo:
-                                            {
-                                                switch (_ElboOrientation)
-                                                {
-                                                    case ContentAlignment.BottomLeft:
+                                                    case SubFunction.Elbo:
+                                                        return Color.FromArgb(0xF1, 0xDF, 0x6F);
+                                                    case SubFunction.Offline:
+                                                        {
+                                                            switch (_UseAlternateColor)
+                                                            {
+                                                                case true:
+                                                                    return Color.FromArgb(0x33, 0x00, 0x00);
+                                                                default:
+                                                                    return Color.FromArgb(0xFF, 0x00, 0x00);
+                                                            }
+                                                        }
+                                                    case SubFunction.Unavailable:
+                                                        return Color.FromArgb(0x33, 0x99, 0xFF);
+                                                    case SubFunction.Primary:
                                                         return Color.FromArgb(0x99, 0xCC, 0xFF);
-                                                    case ContentAlignment.BottomRight:
-                                                        return Color.FromArgb(0x99, 0xCC, 0xFF);
-                                                    case ContentAlignment.TopLeft:
-                                                        return Color.FromArgb(0xCC, 0x66, 0x66);
-                                                    case ContentAlignment.TopRight:
-                                                        return Color.FromArgb(0xCC, 0x66, 0x66);
+                                                    case SubFunction.Color1:
+                                                        return Color.FromArgb(0xFF, 0xFF, 0x33);
+                                                    case SubFunction.Color2:
+                                                        return Color.FromArgb(0xFF, 0xFF, 0xCC);
                                                 }
                                                 break;
                                             }
-                                        case SubFunction.Offline:
+                                        #endregion
+                                        #region Secondary
+                                        case Function.Secondary:
                                             {
-                                                switch (_UseAlternateColor)
+                                                switch (_SubFunction)
                                                 {
-                                                    case true:
-                                                        return Color.FromArgb(0x33, 0x00, 0x00);
+                                                    case SubFunction.Elbo:
+                                                        return Color.FromArgb(0xB1, 0x95, 0x7A);
+                                                    case SubFunction.Offline:
+                                                        {
+                                                            switch (_UseAlternateColor)
+                                                            {
+                                                                case true:
+                                                                    return Color.FromArgb(0x33, 0x00, 0x00);
+                                                                default:
+                                                                    return Color.FromArgb(0xFF, 0x00, 0x00);
+                                                            }
+                                                        }
+                                                    case SubFunction.Unavailable:
+                                                        return Color.FromArgb(0x53, 0x55, 0xDE);
+                                                    case SubFunction.Primary:
+                                                        return Color.FromArgb(0x99, 0xCC, 0xFF);
+                                                    case SubFunction.Color1:
+                                                        return Color.FromArgb(0xFF, 0xCC, 0x00);
+                                                    case SubFunction.Color2:
+                                                        return Color.FromArgb(0xFF, 0xFF, 0x99);
+                                                }
+                                                break;
+                                            }
+                                        #endregion
+                                        #region Ancillary
+                                        case Function.Ancillary:
+                                            {
+                                                switch (_SubFunction)
+                                                {
+                                                    case SubFunction.Elbo:
+                                                        return Color.FromArgb(0xF1, 0xB1, 0xAF);
+                                                    case SubFunction.Offline:
+                                                        {
+                                                            switch (_UseAlternateColor)
+                                                            {
+                                                                case true:
+                                                                    return Color.FromArgb(0x33, 0x00, 0x00);
+                                                                default:
+                                                                    return Color.FromArgb(0xFF, 0x00, 0x00);
+                                                            }
+                                                        }
+                                                    case SubFunction.Unavailable:
+                                                        return Color.FromArgb(0xA2, 0x7F, 0xA5);
+                                                    case SubFunction.Primary:
+                                                        return Color.FromArgb(0xAD, 0xAC, 0xD8);
+                                                    case SubFunction.Color1:
+                                                        return Color.FromArgb(0xFF, 0xFF, 0x33);
+                                                    case SubFunction.Color2:
+                                                        return Color.FromArgb(0xE6, 0xB0, 0xD4);
+                                                }
+                                                break;
+                                            }
+                                        #endregion
+                                        #region Database
+                                        case Function.Database:
+                                            {
+                                                switch (_SubFunction)
+                                                {
+                                                    case SubFunction.Elbo:
+                                                        return Color.FromArgb(0xCC, 0x66, 0x66);
+                                                    case SubFunction.Offline:
+                                                        {
+                                                            switch (_UseAlternateColor)
+                                                            {
+                                                                case true:
+                                                                    return Color.FromArgb(0x33, 0x00, 0x00);
+                                                                default:
+                                                                    return Color.FromArgb(0xFF, 0x00, 0x00);
+                                                            }
+                                                        }
+                                                    case SubFunction.Unavailable:
+                                                        return Color.FromArgb(0xCC, 0xCC, 0xFF);
+                                                    case SubFunction.Primary:
+                                                        return Color.FromArgb(0x99, 0xCC, 0xFF);
+                                                    case SubFunction.Color1:
+                                                        return Color.FromArgb(0xFF, 0x99, 0x00);
+                                                    case SubFunction.Color2:
+                                                        return Color.Black;
+                                                }
+                                                break;
+                                            }
+                                        #endregion
+                                        #region MultiDisplay
+                                        case Function.MultiDisplay:
+                                            {
+                                                switch (_SubFunction)
+                                                {
+                                                    case SubFunction.Elbo:
+                                                        {
+                                                            switch (_ElboOrientation)
+                                                            {
+                                                                case ContentAlignment.BottomLeft:
+                                                                    return Color.FromArgb(0x99, 0xCC, 0xFF);
+                                                                case ContentAlignment.BottomRight:
+                                                                    return Color.FromArgb(0x99, 0xCC, 0xFF);
+                                                                case ContentAlignment.TopLeft:
+                                                                    return Color.FromArgb(0xCC, 0x66, 0x66);
+                                                                case ContentAlignment.TopRight:
+                                                                    return Color.FromArgb(0xCC, 0x66, 0x66);
+                                                            }
+                                                            break;
+                                                        }
+                                                    case SubFunction.Offline:
+                                                        {
+                                                            switch (_UseAlternateColor)
+                                                            {
+                                                                case true:
+                                                                    return Color.FromArgb(0x33, 0x00, 0x00);
+                                                                default:
+                                                                    return Color.FromArgb(0xFF, 0x00, 0x00);
+                                                            }
+                                                        }
+                                                    case SubFunction.Unavailable:
+                                                        return Color.FromArgb(0x33, 0x99, 0xFF);
+                                                    case SubFunction.Primary:
+                                                        return Color.FromArgb(0x99, 0xCC, 0xFF);
+                                                    case SubFunction.Color1:
+                                                        return Color.FromArgb(0xFF, 0x99, 0x00);
+                                                    case SubFunction.Color2:
+                                                        return Color.FromArgb(0xCC, 0x99, 0xCC);
+                                                }
+                                                break;
+                                            }
+                                        #endregion
+                                        #region RedAlert
+                                        case Function.RedAlert:
+                                            {
+                                                switch (_SubFunction)
+                                                {
+                                                    case SubFunction.Offline:
+                                                        {
+                                                            switch (_UseAlternateColor)
+                                                            {
+                                                                case true:
+                                                                    return Color.FromArgb(0x33, 0x00, 0x00);
+                                                                default:
+                                                                    return Color.FromArgb(0xFF, 0x00, 0x00);
+                                                            }
+                                                        }
                                                     default:
-                                                        return Color.FromArgb(0xFF, 0x00, 0x00);
+                                                        {
+                                                            return Color.FromArgb(0xFF, 0x00, 0x00);
+                                                        }
                                                 }
                                             }
-                                        case SubFunction.Unavailable:
-                                            return Color.FromArgb(0x33, 0x99, 0xFF);
-                                        case SubFunction.Primary:
-                                            return Color.FromArgb(0x99, 0xCC, 0xFF);
-                                        case SubFunction.Color1:
-                                            return Color.FromArgb(0xFF, 0x99, 0x00);
-                                        case SubFunction.Color2:
-                                            return Color.FromArgb(0xCC, 0x99, 0xCC);
+                                        #endregion
                                     }
-                                    break;
+                                    return Color.White;
                                 }
-                            #endregion
-                            #region RedAlert
-                            case Function.RedAlert:
-                                {
-                                    switch (_SubFunction)
-                                    {
-                                        case SubFunction.Offline:
-                                            {
-                                                switch (_UseAlternateColor)
-                                                {
-                                                    case true:
-                                                        return Color.FromArgb(0x33, 0x00, 0x00);
-                                                    default:
-                                                        return Color.FromArgb(0xFF, 0x00, 0x00);
-                                                }
-                                            }
-                                        default:
-                                            {
-                                                return Color.FromArgb(0xFF, 0x00, 0x00);
-                                            }
-                                    }
-                                }
-                            #endregion
                         }
-                        return Color.White;
+                        break;
                     }
+                        
             }
         }
 
