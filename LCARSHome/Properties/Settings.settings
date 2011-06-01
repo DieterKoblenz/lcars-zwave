@@ -15,7 +15,7 @@
       <Value Profile="(Default)">60</Value>
     </Setting>
     <Setting Name="ControllerType" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">ThinkStick</Value>
+      <Value Profile="(Default)">ControlThink</Value>
     </Setting>
     <Setting Name="IdleTimerEnabled" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Nodes>
+  <Node id="1">
+    <Name>LCARS Main Computer</Name>
+    <Type>Controller</Type>
+  </Node>
+  <Node id="2">
+    <Name>Appliance 1</Name>
+    <Type>Appliance</Type>
+  </Node>
+  <Node id="4">
+    <Name>Sensor 4</Name>
+    <Type>Unknown</Type>
+  </Node>
+  <Node id="6">
+    <Name>Sensor 6</Name>
+    <Type>Unknown</Type>
+  </Node>
+  <Node id="7">
+    <Name>Light 1</Name>
+    <Type>Light</Type>
+  </Node>
+  <Node id="9">
+    <Name>Replicator</Name>
+    <Type>Appliance</Type>
+  </Node>
+  <Node id="11">
+    <Name>Sensor 11</Name>
+    <Type>Unknown</Type>
+  </Node>
+</Nodes>

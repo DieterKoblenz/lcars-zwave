@@ -44,7 +44,6 @@
             this.btnRedAlert = new Streambolics.Lcars.Button();
             this.btnGreenAlert = new Streambolics.Lcars.Button();
             this.btnBlueAlert = new Streambolics.Lcars.Button();
-            this.btnYellowAlert = new Streambolics.Lcars.Button();
             this.button10 = new Streambolics.Lcars.Button();
             this.elbo5 = new Streambolics.Lcars.Elbo();
             this.button6 = new Streambolics.Lcars.Button();
@@ -409,7 +408,7 @@
             this.btnGreenAlert.Function = Streambolics.Lcars.Function.Ancillary;
             this.btnGreenAlert.InAlert = false;
             this.btnGreenAlert.LeftSegments = 1;
-            this.btnGreenAlert.Location = new System.Drawing.Point(2, 512);
+            this.btnGreenAlert.Location = new System.Drawing.Point(2, 494);
             this.btnGreenAlert.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnGreenAlert.Name = "btnGreenAlert";
             this.btnGreenAlert.Online = true;
@@ -440,7 +439,7 @@
             this.btnBlueAlert.Function = Streambolics.Lcars.Function.Ancillary;
             this.btnBlueAlert.InAlert = false;
             this.btnBlueAlert.LeftSegments = 1;
-            this.btnBlueAlert.Location = new System.Drawing.Point(2, 474);
+            this.btnBlueAlert.Location = new System.Drawing.Point(2, 436);
             this.btnBlueAlert.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnBlueAlert.Name = "btnBlueAlert";
             this.btnBlueAlert.Online = true;
@@ -456,37 +455,6 @@
             this.btnBlueAlert.Text = "INTRUDER ALERT";
             this.btnBlueAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBlueAlert.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // btnYellowAlert
-            // 
-            this.btnYellowAlert.BackColor = System.Drawing.Color.Black;
-            this.btnYellowAlert.Blink = false;
-            this.btnYellowAlert.BlinkInterval = 500;
-            this.btnYellowAlert.BlinkState = false;
-            this.btnYellowAlert.ChangeOnHover = false;
-            this.btnYellowAlert.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnYellowAlert.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
-            this.btnYellowAlert.Font = new System.Drawing.Font("LCARS", 14F);
-            this.btnYellowAlert.ForeColor = System.Drawing.Color.Black;
-            this.btnYellowAlert.Function = Streambolics.Lcars.Function.Ancillary;
-            this.btnYellowAlert.InAlert = false;
-            this.btnYellowAlert.LeftSegments = 1;
-            this.btnYellowAlert.Location = new System.Drawing.Point(2, 436);
-            this.btnYellowAlert.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnYellowAlert.Name = "btnYellowAlert";
-            this.btnYellowAlert.Online = true;
-            this.btnYellowAlert.RightSegments = 0;
-            this.btnYellowAlert.RoundedLeft = false;
-            this.btnYellowAlert.RoundedRight = true;
-            this.btnYellowAlert.Size = new System.Drawing.Size(304, 32);
-            this.btnYellowAlert.SoundFile = "Resources\\UnableToComply.wav";
-            this.btnYellowAlert.SoundRepeatTimes = 1;
-            this.btnYellowAlert.SubFunction = Streambolics.Lcars.SubFunction.Primary;
-            this.btnYellowAlert.TabIndex = 66;
-            this.btnYellowAlert.Tag = "";
-            this.btnYellowAlert.Text = "YELLOW ALERT";
-            this.btnYellowAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnYellowAlert.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -764,7 +732,6 @@
             this.Controls.Add(this.btnRedAlert);
             this.Controls.Add(this.btnGreenAlert);
             this.Controls.Add(this.btnBlueAlert);
-            this.Controls.Add(this.btnYellowAlert);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.elbo5);
             this.Controls.Add(this.button6);
@@ -793,7 +760,6 @@
         private Streambolics.Lcars.Button btnRedAlert;
         private Streambolics.Lcars.Button btnGreenAlert;
         private Streambolics.Lcars.Button btnBlueAlert;
-        private Streambolics.Lcars.Button btnYellowAlert;
         private Streambolics.Lcars.Button button10;
         private Streambolics.Lcars.Elbo elbo5;
         private Streambolics.Lcars.Button button6;

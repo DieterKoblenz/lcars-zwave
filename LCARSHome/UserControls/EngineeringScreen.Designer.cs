@@ -76,6 +76,7 @@
             this.button37 = new Streambolics.Lcars.Button();
             this.button38 = new Streambolics.Lcars.Button();
             this.elbo3 = new Streambolics.Lcars.Elbo();
+            this.subSystemControls1 = new LCARSHome.UserControls.SubSystemControls();
             this.SuspendLayout();
             // 
             // elbo1
@@ -752,7 +753,7 @@
             this.button29.BackColor = System.Drawing.Color.Black;
             this.button29.Blink = true;
             this.button29.BlinkInterval = 500;
-            this.button29.BlinkState = true;
+            this.button29.BlinkState = false;
             this.button29.ChangeOnHover = false;
             this.button29.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button29.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
@@ -808,7 +809,7 @@
             this.button31.BackColor = System.Drawing.Color.Black;
             this.button31.Blink = true;
             this.button31.BlinkInterval = 500;
-            this.button31.BlinkState = true;
+            this.button31.BlinkState = false;
             this.button31.ChangeOnHover = false;
             this.button31.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button31.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
@@ -864,7 +865,7 @@
             this.button33.BackColor = System.Drawing.Color.Black;
             this.button33.Blink = true;
             this.button33.BlinkInterval = 500;
-            this.button33.BlinkState = true;
+            this.button33.BlinkState = false;
             this.button33.ChangeOnHover = false;
             this.button33.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button33.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
@@ -1228,8 +1229,9 @@
             this.button35.SoundRepeatTimes = 1;
             this.button35.SubFunction = Streambolics.Lcars.SubFunction.Primary;
             this.button35.TabIndex = 51;
-            this.button35.Text = "REPLICATOR";
+            this.button35.Text = "SUBSYSTEM CONTROL";
             this.button35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
             // button36
             // 
@@ -1308,12 +1310,13 @@
             this.button38.RoundedLeft = true;
             this.button38.RoundedRight = false;
             this.button38.Size = new System.Drawing.Size(219, 42);
-            this.button38.SoundFile = "Resources/Beep.wav";
+            this.button38.SoundFile = "Resources\\Calibration.wav";
             this.button38.SoundRepeatTimes = 1;
             this.button38.SubFunction = Streambolics.Lcars.SubFunction.Primary;
             this.button38.TabIndex = 54;
-            this.button38.Text = "INDIVIDUAL CONTROLS";
+            this.button38.Text = "DIAGNOSTIC";
             this.button38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button38.Click += new System.EventHandler(this.button38_Click);
             // 
             // elbo3
             // 
@@ -1336,11 +1339,23 @@
             this.elbo3.TabIndex = 55;
             this.elbo3.Text = "elbo3";
             // 
+            // subSystemControls1
+            // 
+            this.subSystemControls1.BackColor = System.Drawing.Color.Black;
+            this.subSystemControls1.Font = new System.Drawing.Font("LCARS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subSystemControls1.Location = new System.Drawing.Point(110, 426);
+            this.subSystemControls1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.subSystemControls1.Name = "subSystemControls1";
+            this.subSystemControls1.Size = new System.Drawing.Size(903, 285);
+            this.subSystemControls1.TabIndex = 56;
+            this.subSystemControls1.Visible = false;
+            // 
             // EngineeringScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(3F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.subSystemControls1);
             this.Controls.Add(this.elbo3);
             this.Controls.Add(this.button38);
             this.Controls.Add(this.button37);
@@ -1446,5 +1461,6 @@
         private Streambolics.Lcars.Button button37;
         private Streambolics.Lcars.Button button38;
         private Streambolics.Lcars.Elbo elbo3;
+        private SubSystemControls subSystemControls1;
     }
 }
