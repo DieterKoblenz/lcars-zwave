@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Speech.Recognition;
+using OpenZWaveDotNet;
 
 namespace LCARSHome
 {
@@ -16,6 +17,21 @@ namespace LCARSHome
         public static SpeechRecognitionEngine engine = new SpeechRecognitionEngine();
         public static StringBuilder output = new StringBuilder();
         public static int IdleBooster = 0;
+        public static bool m_ready = false;
+
+        static private ZWOptions m_options = null;
+        static public ZWOptions Options
+        {
+            get { return m_options; }
+        }
+
+        static private ZWManager m_manager = null;
+        static public ZWManager Manager
+        {
+            get { return m_manager; }
+        }
+
+        private ZWNotification m_notification = null;
 
         public MainForm()
         {
@@ -23,12 +39,33 @@ namespace LCARSHome
             engine.LoadGrammar(new DictationGrammar());
             engine.SetInputToDefaultAudioDevice();
             engine.RecognizeCompleted += new EventHandler<RecognizeCompletedEventArgs>(engine_RecognizeCompleted);
+            m_options = new ZWOptions();
+            m_options.Create(@"C:\Users\Kevin\Documents\Visual Studio 2010\Projects\OpenZWave\config\", @"", @"");
+            m_options.Lock();
+            m_manager = new ZWManager();
+            m_manager.Create();
+            m_manager.AddDriver(@"\\.\COM4");
+            m_manager.OnNotification += new ManagedNotificationsHandler(NotificationHandler);
         }
         private int _timer1tickcount = 1;
         private int _SoundRepeat = 0;
         private string _SoundFile = "";
         internal Status _CurrentStatus=Status.Green;
         internal Alarm _alarmStatus = Alarm.Disarmed;
+
+        public void NotificationHandler(ZWNotification notification)
+        {
+            // Handle the notification on a thread that can safely
+            // modify the form controls without throwing an exception.
+            m_notification = notification;
+            Invoke(new MethodInvoker(NotificationHandler));
+            m_notification = null;
+        }
+
+        private void NotificationHandler()
+        {
+            Zwave.NotificationHandler(m_notification);
+        }
 
         void engine_RecognizeCompleted(object sender, RecognizeCompletedEventArgs e)
         {
@@ -344,7 +381,7 @@ namespace LCARSHome
                 while (Win32.GetIdleTime()/1000 < IdleBooster + Properties.Settings.Default.IdleTimeoutInSeconds)
                 {
                     Thread.Sleep(1000);
-                    Console.WriteLine((Win32.GetIdleTime()/1000).ToString());
+                    //Console.WriteLine((Win32.GetIdleTime()/1000).ToString());
                 }
         }
 

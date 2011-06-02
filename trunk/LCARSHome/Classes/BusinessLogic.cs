@@ -261,5 +261,40 @@ namespace LCARSHome
                 Program._MainForm.lockScreen1.label1.Text="ARMED IN " + _PendingAlarmStatus.ToString().ToUpper() + " MODE";
             }
         }
+
+        internal static void SensorStatusChange(byte NodeID, byte Status)
+        {
+            switch (Program._MainForm._alarmStatus)
+            {
+                case Alarm.Disarmed:
+                    {
+                        break;
+                    }
+                case Alarm.Home:
+                    {
+                        break;
+                    }
+                case Alarm.Away:
+                    {
+                        switch (NodeID)
+                        {
+                            case 14:
+                                {
+                                    switch (Status)
+                                    {
+                                        case 255:
+                                            {
+                                                SetStatus(LCARSHome.Status.Blue);
+                                                break;
+                                            }
+
+                                    }
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+            }
+        }
     }
 }

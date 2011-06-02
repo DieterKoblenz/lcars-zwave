@@ -150,7 +150,7 @@
         internal Streambolics.Lcars.Sound sound1;
         private System.Windows.Forms.Timer timer1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private UserControls.EngineeringScreen engineeringScreen1;
+        internal UserControls.EngineeringScreen engineeringScreen1;
 
 
 
