@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ControlThink.ZWave;
+using OpenZWaveDotNet;
 
 namespace LCARSHome
 {
     class Zwave
     {
+        public static bool m_ready = false;
+        public static List<Node> _nodes = new List<Node>();
         public static void PowerOn(byte NodeID)
         {
             if (Properties.Settings.Default.ControllerType == "ControlThink")
@@ -28,7 +31,8 @@ namespace LCARSHome
             }
             else if (Properties.Settings.Default.ControllerType == "OpenZWave")
             {
-                throw new NotImplementedException();
+                //MainForm.Manager.SetNodeLevel(Properties.Settings.Default.HomeID, NodeID, 255);
+                MainForm.Manager.SetNodeOn(Properties.Settings.Default.HomeID, NodeID);
             }
             else
             {
@@ -57,12 +61,32 @@ namespace LCARSHome
                 }
                 finally
                 {
-                    controller.Disconnect();
+                    MainForm.Manager.SetNodeLevel(Properties.Settings.Default.HomeID, NodeID, 0);
                 }
             }
             else if (Properties.Settings.Default.ControllerType == "OpenZWave")
             {
-                throw new NotImplementedException();
+                bool ret = false;
+                //if (_nodes.Find(item => item.ID == NodeID). )
+                //    ret=true;
+                string result = "";
+                try
+                {
+                    MainForm.Manager.GetValueAsString(_nodes.Find(item => item.ID == NodeID).Value, out result);
+                }
+                catch { }
+                Console.WriteLine("IsPoweredOnResult: " + result);
+                if (result == "true" || result == "255")
+                    ret = true;
+                else
+                {
+                    try
+                    {
+                        MainForm.Manager.GetValueAsBool(_nodes.Find(item => item.ID == NodeID).Value, out ret);
+                    }
+                    catch { }
+                }
+                return ret;
             }
             else
             {
@@ -87,7 +111,8 @@ namespace LCARSHome
             }
             else if (Properties.Settings.Default.ControllerType == "OpenZWave")
             {
-                throw new NotImplementedException();
+                //MainForm.Manager.SetNodeLevel(Properties.Settings.Default.HomeID, NodeID, 0);
+                MainForm.Manager.SetNodeOff(Properties.Settings.Default.HomeID, NodeID);
             }
             else
             {
@@ -168,6 +193,111 @@ namespace LCARSHome
             else
             {
                 throw new NotSupportedException("Controller Type is Not Supported.");
+            }
+        }
+
+        internal static void NotificationHandler(ZWNotification notification)
+        {
+            switch (notification.GetType())
+            {
+                case ZWNotification.Type.AwakeNodesQueried:
+                    {
+                        Console.WriteLine(Environment.NewLine + notification.GetType().ToString() + Environment.NewLine);
+                        m_ready = true;
+                        Program._MainForm.engineeringScreen1.Invalidate();
+                        Program._MainForm.engineeringScreen1.subSystemControls1.SetButtonStatuses();
+                        break;
+                    }
+                default:
+                    {
+                        switch (m_ready)
+                        {
+                            case true:
+                                {
+                                    Console.WriteLine(notification.GetType().ToString());
+                                    string result;
+                                    switch (notification.GetType())
+                                    {
+                                        case ZWNotification.Type.ValueChanged:
+                                            {
+                                                foreach (Node n in _nodes)
+                                                {
+                                                    if (n.ID == notification.GetNodeId())
+                                                    {
+                                                        n.Value = notification.GetValueID();
+                                                    }
+                                                }
+                                                Console.WriteLine(" Node ID: ");
+                                                Console.WriteLine(notification.GetNodeId().ToString());
+                                                Console.WriteLine(" Byte: ");
+                                                Console.WriteLine(notification.GetByte().ToString());
+                                                Console.WriteLine(" Value: ");
+                                                MainForm.Manager.GetValueAsString(notification.GetValueID(), out result);
+                                                Console.WriteLine(result);
+                                                Console.WriteLine(Environment.NewLine);
+                                                Program._MainForm.engineeringScreen1.Invalidate();
+                                                Program._MainForm.engineeringScreen1.subSystemControls1.SetButtonStatuses();
+                                                break;
+                                            }
+                                        case ZWNotification.Type.NodeEvent:
+                                            {
+                                                Console.WriteLine(" Node ID: ");
+                                                Console.WriteLine(notification.GetNodeId().ToString());
+                                                Console.WriteLine(" Byte: ");
+                                                Console.WriteLine(notification.GetByte().ToString());
+                                                Console.WriteLine(" Value: ");
+                                                MainForm.Manager.GetValueAsString(notification.GetValueID(), out result);
+                                                try
+                                                {
+                                                    Console.WriteLine(result);
+                                                }
+                                                catch (NullReferenceException e)
+                                                {
+                                                    Console.WriteLine("NULL");
+                                                }
+                                                Console.WriteLine(Environment.NewLine);
+                                                BusinessLogic.SensorStatusChange(notification.GetNodeId(), notification.GetByte());
+                                                break;
+                                            }
+                                        default:
+                                            {
+                                                Console.WriteLine(Environment.NewLine);
+                                                break;
+                                            }
+                                    }
+                                    break;
+                                }
+                            default:
+                                {
+                                    Console.WriteLine(notification.GetType().ToString() + ":");
+                                    switch (notification.GetType())
+                                    {
+                                        case ZWNotification.Type.NodeNew:
+                                            {
+                                                Node n = new Node();
+                                                n.HomeID = notification.GetHomeId();
+                                                n.ID = notification.GetNodeId();
+                                                _nodes.Add(n);
+                                                break;
+                                            }
+                                        case ZWNotification.Type.ValueAdded:
+                                            {
+                                                foreach (Node n in _nodes)
+                                                {
+                                                    if (n.ID == notification.GetNodeId())
+                                                    {
+                                                        n.Value=notification.GetValueID();
+                                                    }
+                                                }
+                                                break;
+                                            }
+
+                                    }
+                                    break;
+                                }
+                        }
+                        break;
+                    }
             }
         }
     }

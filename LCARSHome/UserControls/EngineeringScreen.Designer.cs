@@ -1461,6 +1461,6 @@
         private Streambolics.Lcars.Button button37;
         private Streambolics.Lcars.Button button38;
         private Streambolics.Lcars.Elbo elbo3;
-        private SubSystemControls subSystemControls1;
+        internal SubSystemControls subSystemControls1;
     }
 }

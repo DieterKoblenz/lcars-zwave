@@ -21,6 +21,7 @@ namespace LCARSHome.UserControls
             bw.RunWorkerAsync();
         }
 
+
         void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             SetButtonStatuses();
@@ -31,7 +32,7 @@ namespace LCARSHome.UserControls
             Thread.Sleep(3000);
         }
 
-        private void SetButtonStatuses()
+        internal void SetButtonStatuses()
         {
             if(Zwave.PoweredOn(9))
                 button27.SubFunction = Streambolics.Lcars.SubFunction.Primary;

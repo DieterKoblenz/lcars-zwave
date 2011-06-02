@@ -61,7 +61,7 @@ namespace LCARSHome.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ControlThink")]
+        [global::System.Configuration.DefaultSettingValueAttribute("OpenZWave")]
         public string ControllerType {
             get {
                 return ((string)(this["ControllerType"]));
@@ -74,6 +74,15 @@ namespace LCARSHome.Properties {
         public bool IdleTimerEnabled {
             get {
                 return ((bool)(this["IdleTimerEnabled"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15101900")]
+        public uint HomeID {
+            get {
+                return ((uint)(this["HomeID"]));
             }
         }
     }
