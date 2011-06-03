@@ -36,16 +36,22 @@ namespace LCARSHome
         public MainForm()
         {
             InitializeComponent();
-            engine.LoadGrammar(new DictationGrammar());
-            engine.SetInputToDefaultAudioDevice();
-            engine.RecognizeCompleted += new EventHandler<RecognizeCompletedEventArgs>(engine_RecognizeCompleted);
-            m_options = new ZWOptions();
-            m_options.Create(@"C:\Users\Kevin\Documents\Visual Studio 2010\Projects\OpenZWave\config\", @"", @"");
-            m_options.Lock();
-            m_manager = new ZWManager();
-            m_manager.Create();
-            m_manager.AddDriver(@"\\.\COM4");
-            m_manager.OnNotification += new ManagedNotificationsHandler(NotificationHandler);
+            if (Properties.Settings.Default.SpeechRecognitionEnabled)
+            {
+                engine.LoadGrammar(new DictationGrammar());
+                engine.SetInputToDefaultAudioDevice();
+                engine.RecognizeCompleted += new EventHandler<RecognizeCompletedEventArgs>(engine_RecognizeCompleted);
+            }
+            if (Properties.Settings.Default.ZWaveEnabled)
+            {
+                m_options = new ZWOptions();
+                m_options.Create(@"C:\Users\Kevin\Documents\Visual Studio 2010\Projects\OpenZWave\config\", @"", @"");
+                m_options.Lock();
+                m_manager = new ZWManager();
+                m_manager.Create();
+                m_manager.AddDriver(@"\\.\COM4");
+                m_manager.OnNotification += new ManagedNotificationsHandler(NotificationHandler);
+            }
         }
         private int _timer1tickcount = 1;
         private int _SoundRepeat = 0;
@@ -156,7 +162,8 @@ namespace LCARSHome
             this.timer1.Interval = 2000;
             this.timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
-            engine.RecognizeAsync();
+            if (Properties.Settings.Default.SpeechRecognitionEnabled)
+                engine.RecognizeAsync();
         }
         internal void SetStatus(Status status)
         {
