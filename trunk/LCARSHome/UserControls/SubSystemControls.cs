@@ -34,21 +34,23 @@ namespace LCARSHome.UserControls
 
         internal void SetButtonStatuses()
         {
-            if(Zwave.PoweredOn(9))
-                button27.SubFunction = Streambolics.Lcars.SubFunction.Primary;
-            else
-                button27.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
-            
-            if (Zwave.PoweredOn(2))
-                button25.SubFunction = Streambolics.Lcars.SubFunction.Primary;
-            else
-                button25.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+            if (Properties.Settings.Default.ZWaveEnabled)
+            {
+                if (Zwave.PoweredOn(9))
+                    button27.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+                else
+                    button27.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
 
-            if (Zwave.PoweredOn(7))
-                button4.SubFunction = Streambolics.Lcars.SubFunction.Primary;
-            else
-                button4.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+                if (Zwave.PoweredOn(2))
+                    button25.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+                else
+                    button25.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
 
+                if (Zwave.PoweredOn(7))
+                    button4.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+                else
+                    button4.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+            }
             button27.Invalidate();
             button25.Invalidate();
             button4.Invalidate();
@@ -62,11 +64,13 @@ namespace LCARSHome.UserControls
         private void button27_Click(object sender, EventArgs e)
         {
             byte NodeID = 9;
-            if (Zwave.PoweredOn(NodeID))
-                Zwave.PowerOff(NodeID);
-            else
-                Zwave.PowerOn(NodeID);
-
+            if (Properties.Settings.Default.ZWaveEnabled)
+            {
+                if (Zwave.PoweredOn(NodeID))
+                    Zwave.PowerOff(NodeID);
+                else
+                    Zwave.PowerOn(NodeID);
+            }
             if (!bw.IsBusy)
                 bw.RunWorkerAsync();
         }
@@ -78,12 +82,14 @@ namespace LCARSHome.UserControls
 
         private void button25_Click(object sender, EventArgs e)
         {
-            byte NodeID = 2;
-            if (Zwave.PoweredOn(NodeID))
-                Zwave.PowerOff(NodeID);
-            else
-                Zwave.PowerOn(NodeID);
-
+            if (Properties.Settings.Default.ZWaveEnabled)
+            {
+                byte NodeID = 2;
+                if (Zwave.PoweredOn(NodeID))
+                    Zwave.PowerOff(NodeID);
+                else
+                    Zwave.PowerOn(NodeID);
+            }
             if (!bw.IsBusy)
                 bw.RunWorkerAsync();
         }
@@ -91,11 +97,13 @@ namespace LCARSHome.UserControls
         private void button4_Click(object sender, EventArgs e)
         {
             byte NodeID = 7;
-            if (Zwave.PoweredOn(NodeID))
-                Zwave.PowerOff(NodeID);
-            else
-                Zwave.PowerOn(NodeID);
-            
+            if (Properties.Settings.Default.ZWaveEnabled)
+            {
+                if (Zwave.PoweredOn(NodeID))
+                    Zwave.PowerOff(NodeID);
+                else
+                    Zwave.PowerOn(NodeID);
+            }
             if(!bw.IsBusy)
                 bw.RunWorkerAsync();
         }
