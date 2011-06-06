@@ -35,6 +35,23 @@ namespace LCARSHome
             return RetCtrls;
         }
 
+        public static List<LcarsControl> GetAllButtons(IList ctrls)
+        {
+            List<LcarsControl> RetCtrls = new List<LcarsControl>();
+            foreach (Control ctl in ctrls)
+            {
+                if (ctl.GetType().FullName == "Streambolics.Lcars.Button")
+                    try
+                    {
+                        RetCtrls.Add((LcarsControl)ctl);
+                    }
+                    catch { }
+                List<LcarsControl> SubCtrls = GetAllAlertables(ctl.Controls);
+                RetCtrls.AddRange(SubCtrls);
+            }
+            return RetCtrls;
+        }
+
         internal static void Exit()
         {
             Program._MainForm.sound1.PlayOnce("Resources\\AutoShutdown.wav");

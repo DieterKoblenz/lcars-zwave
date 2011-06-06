@@ -55,16 +55,24 @@ namespace LCARSHome
             get { return m_product; }
             set { m_product = value; }
         }
-
-        private ZWValueID m_value;
-        public ZWValueID Value
+        private List<ZWValueID> m_values = new List<ZWValueID>();
+        public List<ZWValueID> Values
         {
-            get { return m_value; }
-            set { m_value = value; }
+            get { return m_values; }
         }
 
         public Node()
         {
+        }
+
+        public void AddValue(ZWValueID valueID)
+        {
+            m_values.Add(valueID);
+        }
+
+        public void RemoveValue(ZWValueID valueID)
+        {
+            m_values.Remove(valueID);
         }
 
     }

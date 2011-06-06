@@ -23,6 +23,7 @@ namespace LCARSHome.UserControls
             _bw.DoWork += new DoWorkEventHandler(_bw_DoWork);
             _bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(_bw_RunWorkerCompleted);
             _bw.ProgressChanged += new ProgressChangedEventHandler(_bw_ProgressChanged);
+            SetButtonStatuses();
         }
 
         void _bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -76,21 +77,6 @@ namespace LCARSHome.UserControls
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button24_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button7_Click(object sender, EventArgs e)
         {
             Thread.Sleep(500);
@@ -109,8 +95,120 @@ namespace LCARSHome.UserControls
 
         private void button38_Click(object sender, EventArgs e)
         {
-            _bw.RunWorkerAsync();
+            //_bw.RunWorkerAsync();
+            MainForm.Manager.WriteConfig(Properties.Settings.Default.HomeID);
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            BusinessLogic.SetStatus(Status.Red);
+        }
+
+        internal void SetButtonStatuses()
+        {
+            #region Enabled & Ready
+            if (Properties.Settings.Default.ZWaveEnabled && Zwave.m_ready)
+            {
+                foreach (Streambolics.Lcars.Button b in BusinessLogic.GetAllButtons(this.Controls))
+                {
+                    b.BlinkState = false;
+                    ZWaveStatus s = Zwave.Status(b.NodeID);
+                    if (s == ZWaveStatus.PartiallyOn)
+                    {
+                        b.SubFunction = Streambolics.Lcars.SubFunction.Color1;
+                        b.Online = true;
+                    }
+                    else if (s == ZWaveStatus.On)
+                    {
+                        b.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+                        b.Online = true;
+                    }
+                    else if (s == ZWaveStatus.Off)
+                    {
+                        b.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+                        b.Online = true;
+                    }
+                    else if (b.NodeID == 0)
+                    {
+                        //b.SubFunction = b.SubFunction;
+                        //b.Online = b.Online;
+                        //b.Online = true;
+                    }
+                    else
+                    {
+                        b.Online = false;
+                    }
+                    b.Invalidate();
+                }
+            }
+            #endregion
+            #region Else
+            else
+            {
+                foreach (Streambolics.Lcars.Button b in BusinessLogic.GetAllButtons(this.Controls))
+                    {
+                        if (b.NodeID != 0)
+                        {
+                            b.BlinkState = false;
+                            b.Online = false;
+                        }
+                        b.Invalidate();
+                    }
+            }
+            #endregion
+            this.btnZWave.Online = Zwave.m_ready;
+            
+            if (Properties.Settings.Default.SpeechRecognitionEnabled)
+                btnVoice.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+            else
+                btnVoice.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+            
+            if (Properties.Settings.Default.ZWaveEnabled)
+                btnZWave.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+            else
+                btnZWave.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+
+            if (Properties.Settings.Default.IdleTimerEnabled)
+                btnAutoLockout.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+            else
+                btnAutoLockout.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+        }
+
+        private void btnVoice_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SpeechRecognitionEnabled = !Properties.Settings.Default.SpeechRecognitionEnabled;
+            SetButtonStatuses();
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnZWave_Click(object sender, EventArgs e)
+        {
+            if (!btnZWave.Online)
+            {
+                if (!Properties.Settings.Default.ZWaveEnabled)
+                {
+                    Properties.Settings.Default.ZWaveEnabled = true;
+                    Properties.Settings.Default.Save();
+                }
+                Console.WriteLine("Manually set ZWave Controller to Ready");
+                Zwave.m_ready = true;
+                Program._MainForm.engineeringScreen1.SetButtonStatuses();
+                Program._MainForm.engineeringScreen1.subSystemControls1.SetButtonStatuses();
+                
+            }
+            else
+            {
+                Properties.Settings.Default.ZWaveEnabled = !Properties.Settings.Default.ZWaveEnabled;
+                Properties.Settings.Default.Save();
+                SetButtonStatuses();
+            }
+        }
+
+        private void btnAutoLockout_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.IdleTimerEnabled = !Properties.Settings.Default.IdleTimerEnabled;
+            Properties.Settings.Default.Save();
+            SetButtonStatuses();
+        }
     }
 }

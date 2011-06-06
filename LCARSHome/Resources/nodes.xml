@@ -5,19 +5,11 @@
     <Type>Controller</Type>
   </Node>
   <Node id="2">
-    <Name>Appliance 1</Name>
+    <Name>Appliance 2</Name>
     <Type>Appliance</Type>
   </Node>
-  <Node id="4">
-    <Name>Sensor 4</Name>
-    <Type>Unknown</Type>
-  </Node>
-  <Node id="6">
-    <Name>Sensor 6</Name>
-    <Type>Unknown</Type>
-  </Node>
   <Node id="7">
-    <Name>Light 1</Name>
+    <Name>Master Bedroom Light</Name>
     <Type>Light</Type>
   </Node>
   <Node id="9">
@@ -27,5 +19,25 @@
   <Node id="11">
     <Name>Sensor 11</Name>
     <Type>Unknown</Type>
+  </Node>
+  <Node id="13">
+    <Name>LCARS Aeon</Name>
+    <Type>Controller</Type>
+  </Node>
+  <Node id="14">
+    <Name>Sensor 14</Name>
+    <Type>Unknown</Type>
+  </Node>
+  <Node id="15">
+    <Name>Sensor 15</Name>
+    <Type>Unknown</Type>
+  </Node>
+  <Node id="19">
+    <Name>Lilly's Bedroom Lights</Name>
+    <Type>Light</Type>
+  </Node>
+  <Node id="18">
+    <Name>Stairway Lights</Name>
+    <Type>Light</Type>
   </Node>
 </Nodes>

@@ -2,32 +2,32 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LCARSHome.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ExitDelay" Type="System.Int32" Scope="Application">
+    <Setting Name="ExitDelay" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">25</Value>
     </Setting>
-    <Setting Name="EntryDelay" Type="System.Int32" Scope="Application">
+    <Setting Name="EntryDelay" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">25</Value>
     </Setting>
-    <Setting Name="ArmDelayHome" Type="System.Int32" Scope="Application">
+    <Setting Name="ArmDelayHome" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="IdleTimeoutInSeconds" Type="System.Int32" Scope="Application">
+    <Setting Name="IdleTimeoutInSeconds" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">60</Value>
     </Setting>
-    <Setting Name="ControllerType" Type="System.String" Scope="Application">
+    <Setting Name="ControllerType" Type="System.String" Scope="User">
       <Value Profile="(Default)">OpenZWave</Value>
     </Setting>
-    <Setting Name="IdleTimerEnabled" Type="System.Boolean" Scope="Application">
+    <Setting Name="IdleTimerEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="HomeID" Type="System.UInt32" Scope="Application">
+    <Setting Name="HomeID" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">15101900</Value>
     </Setting>
-    <Setting Name="SpeechRecognitionEnabled" Type="System.Boolean" Scope="Application">
+    <Setting Name="SpeechRecognitionEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ZWaveEnabled" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="ZWaveEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

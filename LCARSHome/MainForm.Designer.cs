@@ -114,6 +114,7 @@
             this.engineeringScreen1.Name = "engineeringScreen1";
             this.engineeringScreen1.Size = new System.Drawing.Size(1024, 768);
             this.engineeringScreen1.TabIndex = 5;
+            this.engineeringScreen1.Load += new System.EventHandler(this.engineeringScreen1_Load);
             // 
             // MainForm
             // 
