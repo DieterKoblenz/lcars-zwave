@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Speech.Recognition;
 using OpenZWaveDotNet;
+using SpeechLib;
 
 namespace LCARSHome
 {
@@ -18,6 +19,7 @@ namespace LCARSHome
         public static StringBuilder output = new StringBuilder();
         public static int IdleBooster = 0;
         public static bool m_ready = false;
+        private static SpVoice spVoice = new SpVoice();
 
         static private ZWOptions m_options = null;
         static public ZWOptions Options
@@ -29,6 +31,12 @@ namespace LCARSHome
         static public ZWManager Manager
         {
             get { return m_manager; }
+        }
+
+        public static void Speak(string Text)
+        {
+            Thread t = new Thread(() => spVoice.Speak (Text,SpeechVoiceSpeakFlags.SVSFDefault));
+            t.Start();
         }
 
         private ZWNotification m_notification = null;
@@ -134,6 +142,11 @@ namespace LCARSHome
                     else if (output.ToString().Contains("shut down") || output.ToString().Contains("exit"))
                     {
                         BusinessLogic.Exit();
+                    }
+                    else if (output.ToString().Contains("subsystem"))
+                    {
+                        Program._MainForm.LoadScreen(Screen.EngineeringScreen, Screen.NotAScreen);
+                        Program._MainForm.engineeringScreen1.subSystemControls1.Visible = true;
                     }
                     else if (output.ToString().Contains("engine"))
                     {
@@ -401,6 +414,11 @@ namespace LCARSHome
         {
             if (!Program._MainForm.lockScreen1.Visible && Properties.Settings.Default.IdleTimerEnabled)
                 Program._MainForm.LoadScreen(Screen.LockScreen, Screen.NotAScreen);
+        }
+
+        private void engineeringScreen1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

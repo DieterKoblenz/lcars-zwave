@@ -34,32 +34,52 @@ namespace LCARSHome.UserControls
 
         internal void SetButtonStatuses()
         {
-            if (Properties.Settings.Default.ZWaveEnabled)
+            #region Enabled & Ready
+            if (Properties.Settings.Default.ZWaveEnabled && Zwave.m_ready)
             {
-                if (Zwave.PoweredOn(9))
-                    button27.SubFunction = Streambolics.Lcars.SubFunction.Primary;
-                else
-                    button27.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
-
-                if (Zwave.PoweredOn(2))
-                    button25.SubFunction = Streambolics.Lcars.SubFunction.Primary;
-                else
-                    button25.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
-
-                if (Zwave.PoweredOn(7))
-                    button4.SubFunction = Streambolics.Lcars.SubFunction.Primary;
-                else
-                    button4.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+                foreach (Streambolics.Lcars.Button b in this.Controls)
+                {
+                    b.BlinkState = false;
+                    ZWaveStatus s = Zwave.Status(b.NodeID);
+                    if (s == ZWaveStatus.PartiallyOn)
+                    {
+                        b.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+                        b.Online = true;
+                    }
+                    else if (s == ZWaveStatus.On)
+                    {
+                        b.SubFunction = Streambolics.Lcars.SubFunction.Color1;
+                        b.Online = true;
+                    }
+                    else if (s == ZWaveStatus.Off)
+                    {
+                        b.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+                        b.Online = true;
+                    }
+                    else if (b.NodeID == 0)
+                    {
+                    }
+                    else
+                    {
+                        b.Online = false;
+                    }
+                    b.Invalidate();
+                }
             }
-            button27.Invalidate();
-            button25.Invalidate();
-            button4.Invalidate();
+            #endregion
+            #region Else
+            else
+            {
+                foreach (Streambolics.Lcars.Button b in this.Controls)
+                {
+                    b.Online = false;
+                    b.Invalidate();
+                }
+            }
+            #endregion
+            Program._MainForm.engineeringScreen1.SetButtonStatuses();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button27_Click(object sender, EventArgs e)
         {
@@ -73,11 +93,6 @@ namespace LCARSHome.UserControls
             }
             if (!bw.IsBusy)
                 bw.RunWorkerAsync();
-        }
-
-        private void button21_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button25_Click(object sender, EventArgs e)
@@ -105,6 +120,34 @@ namespace LCARSHome.UserControls
                     Zwave.PowerOn(NodeID);
             }
             if(!bw.IsBusy)
+                bw.RunWorkerAsync();
+        }
+
+        private void btnStairway_Click(object sender, EventArgs e)
+        {
+            byte NodeID = 18;
+            if (Properties.Settings.Default.ZWaveEnabled)
+            {
+                if (Zwave.PoweredOn(NodeID))
+                    Zwave.PowerOff(NodeID);
+                else
+                    Zwave.PowerOn(NodeID);
+            }
+            if (!bw.IsBusy)
+                bw.RunWorkerAsync();
+        }
+
+        private void btnLilly_Click(object sender, EventArgs e)
+        {
+            byte NodeID = 17;
+            if (Properties.Settings.Default.ZWaveEnabled)
+            {
+                if (Zwave.PoweredOn(NodeID))
+                    Zwave.PowerOff(NodeID);
+                else
+                    Zwave.PowerOn(NodeID);
+            }
+            if (!bw.IsBusy)
                 bw.RunWorkerAsync();
         }
     }

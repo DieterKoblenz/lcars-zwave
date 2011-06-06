@@ -28,7 +28,7 @@ namespace Streambolics.Lcars
         private int _BlinkInterval = 500;
         private int _SoundRepeat = 1;
 
-        private string _SoundFile = "Resources/Beep.wav";
+        private string _SoundFile = "Resources\\Beep.wav";
         private bool _IsDown = false;
         private bool _ChangeOnHover = false;
 
@@ -44,6 +44,7 @@ namespace Streambolics.Lcars
         //       be synchronized?
 
         private Timer timer1;
+        private byte _NodeID;
 
         // Methods
         public Button ()
@@ -160,6 +161,20 @@ namespace Streambolics.Lcars
             {
                 this._Blink = value;
                 this.timer1.Enabled = this._Blink;
+            }
+        }
+
+        [Category("LCARS"), Description("ZWave Node ID")]
+        public byte NodeID
+        {
+            get
+            {
+                return this._NodeID;
+            }
+            set
+            {
+                this._NodeID = value;
+                
             }
         }
 

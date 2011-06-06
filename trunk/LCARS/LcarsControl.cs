@@ -61,11 +61,12 @@ namespace Streambolics.Lcars
         {
             switch (_InAlert)
             {
+                #region In Alert
                 case true:
                     {
-                        switch (_SubFunction)
+                        switch (_Online)
                         {
-                            case SubFunction.Offline:
+                            case false:
                                 {
                                     switch (_UseAlternateColor)
                                     {
@@ -91,10 +92,13 @@ namespace Streambolics.Lcars
                                 }
                         }
                     }
+                #endregion
+                #region Not In Alert
                 default:
                     {
                         switch (_Online)
                         {
+                            #region Offline
                             case false:
                                 {
                                     switch (_UseAlternateColor)
@@ -105,6 +109,8 @@ namespace Streambolics.Lcars
                                             return Color.FromArgb(0xFF, 0x00, 0x00);
                                     }
                                 }
+                            #endregion
+                            #region Online
                             default:
                                 {
                                     switch (_Function)
@@ -292,10 +298,11 @@ namespace Streambolics.Lcars
                                     }
                                     return Color.White;
                                 }
+                            #endregion
                         }
-                        break;
                     }
-                        
+                #endregion
+
             }
         }
 
