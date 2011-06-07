@@ -55,6 +55,12 @@ namespace LCARSHome
             get { return m_product; }
             set { m_product = value; }
         }
+        private bool m_triggered = false;
+        public bool Triggered
+        {
+            get { return m_triggered; }
+            set { m_triggered = value; }
+        }
         private List<ZWValueID> m_values = new List<ZWValueID>();
         public List<ZWValueID> Values
         {

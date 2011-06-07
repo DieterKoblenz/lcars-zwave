@@ -104,7 +104,7 @@
             this.button14.Location = new System.Drawing.Point(259, 83);
             this.button14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button14.Name = "button14";
-            this.button14.NodeID = ((byte)(0));
+            this.button14.NodeID = ((byte)(255));
             this.button14.Online = true;
             this.button14.RightSegments = 0;
             this.button14.RoundedLeft = false;
@@ -133,7 +133,7 @@
             this.button15.Location = new System.Drawing.Point(6, 83);
             this.button15.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button15.Name = "button15";
-            this.button15.NodeID = ((byte)(0));
+            this.button15.NodeID = ((byte)(255));
             this.button15.Online = true;
             this.button15.RightSegments = 0;
             this.button15.RoundedLeft = true;
@@ -162,7 +162,7 @@
             this.button16.Location = new System.Drawing.Point(57, 83);
             this.button16.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button16.Name = "button16";
-            this.button16.NodeID = ((byte)(0));
+            this.button16.NodeID = ((byte)(255));
             this.button16.Online = true;
             this.button16.RightSegments = 0;
             this.button16.RoundedLeft = false;
@@ -370,7 +370,7 @@
             this.button11.Location = new System.Drawing.Point(561, 83);
             this.button11.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button11.Name = "button11";
-            this.button11.NodeID = ((byte)(0));
+            this.button11.NodeID = ((byte)(255));
             this.button11.Online = true;
             this.button11.RightSegments = 0;
             this.button11.RoundedLeft = false;
@@ -399,7 +399,7 @@
             this.button12.Location = new System.Drawing.Point(308, 83);
             this.button12.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button12.Name = "button12";
-            this.button12.NodeID = ((byte)(0));
+            this.button12.NodeID = ((byte)(255));
             this.button12.Online = true;
             this.button12.RightSegments = 0;
             this.button12.RoundedLeft = true;
@@ -428,7 +428,7 @@
             this.button13.Location = new System.Drawing.Point(359, 83);
             this.button13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button13.Name = "button13";
-            this.button13.NodeID = ((byte)(0));
+            this.button13.NodeID = ((byte)(255));
             this.button13.Online = true;
             this.button13.RightSegments = 0;
             this.button13.RoundedLeft = false;
@@ -458,7 +458,7 @@
             this.button8.Location = new System.Drawing.Point(561, 43);
             this.button8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button8.Name = "button8";
-            this.button8.NodeID = ((byte)(0));
+            this.button8.NodeID = ((byte)(255));
             this.button8.Online = true;
             this.button8.RightSegments = 0;
             this.button8.RoundedLeft = false;
@@ -487,7 +487,7 @@
             this.button9.Location = new System.Drawing.Point(308, 43);
             this.button9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button9.Name = "button9";
-            this.button9.NodeID = ((byte)(0));
+            this.button9.NodeID = ((byte)(255));
             this.button9.Online = true;
             this.button9.RightSegments = 0;
             this.button9.RoundedLeft = true;
@@ -516,7 +516,7 @@
             this.button10.Location = new System.Drawing.Point(359, 43);
             this.button10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button10.Name = "button10";
-            this.button10.NodeID = ((byte)(0));
+            this.button10.NodeID = ((byte)(255));
             this.button10.Online = true;
             this.button10.RightSegments = 0;
             this.button10.RoundedLeft = false;
@@ -546,7 +546,7 @@
             this.button5.Location = new System.Drawing.Point(561, 3);
             this.button5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button5.Name = "button5";
-            this.button5.NodeID = ((byte)(0));
+            this.button5.NodeID = ((byte)(255));
             this.button5.Online = true;
             this.button5.RightSegments = 0;
             this.button5.RoundedLeft = false;
@@ -575,7 +575,7 @@
             this.button6.Location = new System.Drawing.Point(308, 3);
             this.button6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button6.Name = "button6";
-            this.button6.NodeID = ((byte)(0));
+            this.button6.NodeID = ((byte)(255));
             this.button6.Online = true;
             this.button6.RightSegments = 0;
             this.button6.RoundedLeft = true;
@@ -604,7 +604,7 @@
             this.button7.Location = new System.Drawing.Point(359, 3);
             this.button7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button7.Name = "button7";
-            this.button7.NodeID = ((byte)(0));
+            this.button7.NodeID = ((byte)(255));
             this.button7.Online = true;
             this.button7.RightSegments = 0;
             this.button7.RoundedLeft = false;
@@ -723,7 +723,7 @@
             this.btnKitchenUp.Location = new System.Drawing.Point(864, 43);
             this.btnKitchenUp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnKitchenUp.Name = "btnKitchenUp";
-            this.btnKitchenUp.NodeID = ((byte)(0));
+            this.btnKitchenUp.NodeID = ((byte)(255));
             this.btnKitchenUp.Online = true;
             this.btnKitchenUp.RightSegments = 0;
             this.btnKitchenUp.RoundedLeft = false;
@@ -783,7 +783,7 @@
             this.btnKitchenDown.Location = new System.Drawing.Point(611, 43);
             this.btnKitchenDown.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnKitchenDown.Name = "btnKitchenDown";
-            this.btnKitchenDown.NodeID = ((byte)(0));
+            this.btnKitchenDown.NodeID = ((byte)(255));
             this.btnKitchenDown.Online = true;
             this.btnKitchenDown.RightSegments = 0;
             this.btnKitchenDown.RoundedLeft = true;
@@ -812,7 +812,7 @@
             this.btnKitchenLights.Location = new System.Drawing.Point(662, 43);
             this.btnKitchenLights.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnKitchenLights.Name = "btnKitchenLights";
-            this.btnKitchenLights.NodeID = ((byte)(0));
+            this.btnKitchenLights.NodeID = ((byte)(255));
             this.btnKitchenLights.Online = true;
             this.btnKitchenLights.RightSegments = 0;
             this.btnKitchenLights.RoundedLeft = false;

@@ -126,7 +126,7 @@ namespace LCARSHome
                 {
                     foreach (ZWValueID v in n.Values)
                     {
-                        Console.WriteLine("Node ID: " + n.ID.ToString() + ", Value Label: " + MainForm.Manager.GetValueLabel(v));
+                        Console.WriteLine("Node ID: " + n.ID.ToString() + ", Value Label: " + MainForm.Manager.GetValueLabel(v) + ", Command Class Id: " + v.GetCommandClassId().ToString());
                         if (v.GetType() == ZWValueID.ValueType.Byte && MainForm.Manager.GetValueLabel(v) == "Basic")
                         {
                             int parseInt;
@@ -137,21 +137,25 @@ namespace LCARSHome
                                 ret = ZWaveStatus.Off;
                             else
                             {
-                                if(Int32.TryParse(result, out parseInt))
+                                if (Int32.TryParse(result, out parseInt))
                                     if (parseInt > 0 && parseInt < 255)
                                         ret = ZWaveStatus.PartiallyOn;
                             }
                             Console.WriteLine("  Result: " + result + ", Return Status: " + ret.ToString());
                         }
-                        else if (v.GetType() == ZWValueID.ValueType.Bool && MainForm.Manager.GetValueLabel(v) == "Sensor")
-                        {
-                            result = GetValue(v);
-                            if (result == "True")
-                                ret = ZWaveStatus.On;
-                            else if (result == "False")
-                                ret = ZWaveStatus.Off;
-                            Console.WriteLine("  Result: " + result + ", Return Status: " + ret.ToString());
-                        }
+                        else if (n.Triggered && Helpers.In(n.ID, 14, 20, 21, 22))
+                            ret = ZWaveStatus.On;
+                        else if (!n.Triggered && Helpers.In(n.ID, 14, 20, 21, 22))
+                            ret = ZWaveStatus.Off;
+                        //else if (v.GetType() == ZWValueID.ValueType.Bool && MainForm.Manager.GetValueLabel(v) == "Sensor")
+                        //{
+                        //    result = GetValue(v);
+                        //    if (result == "True")
+                        //        ret = ZWaveStatus.On;
+                        //    else if (result == "False")
+                        //        ret = ZWaveStatus.Off;
+                        //    Console.WriteLine("  Result: " + result + ", Return Status: " + ret.ToString());
+                        //}
 
                     }
                 }
@@ -394,17 +398,29 @@ namespace LCARSHome
                                 }
                             case ZWNotification.Type.NodeEvent:
                                 {
-                                    MainForm.Manager.GetValueAsString(notification.GetValueID(), out result);
-                                    try
+                                    foreach (Node n in _nodes)
                                     {
-                                        Console.WriteLine(result);
+                                        if (n.ID == notification.GetNodeId())
+                                        {
+                                            switch (notification.GetByte())
+                                            {
+                                                case 255:
+                                                    {
+                                                        n.Triggered = true;
+                                                        break;
+                                                    }
+                                                case 0:
+                                                    {
+                                                        n.Triggered = false;
+                                                        break;
+                                                    }
+                                            }
+                                        }
                                     }
-                                    catch (NullReferenceException e)
-                                    {
-                                        Console.WriteLine("NULL");
-                                    }
-                                    Console.WriteLine(Environment.NewLine);
+
                                     BusinessLogic.SensorStatusChange(notification.GetNodeId(), notification.GetByte());
+                                    Program._MainForm.engineeringScreen1.SetButtonStatuses();
+                                    Program._MainForm.engineeringScreen1.subSystemControls1.SetButtonStatuses();
                                     break;
                                 }
                             default:
