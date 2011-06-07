@@ -23,7 +23,6 @@ namespace LCARSHome.UserControls
             _bw.DoWork += new DoWorkEventHandler(_bw_DoWork);
             _bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(_bw_RunWorkerCompleted);
             _bw.ProgressChanged += new ProgressChangedEventHandler(_bw_ProgressChanged);
-            SetButtonStatuses();
         }
 
         void _bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -208,6 +207,36 @@ namespace LCARSHome.UserControls
         {
             Properties.Settings.Default.IdleTimerEnabled = !Properties.Settings.Default.IdleTimerEnabled;
             Properties.Settings.Default.Save();
+            SetButtonStatuses();
+        }
+
+        private void btnDeck2Breach_Click(object sender, EventArgs e)
+        {
+            //byte node = btnDeck2Breach.NodeID;
+            //Console.WriteLine("Attempting to Associate Node " + node.ToString() + " with Controller...");
+            //MainForm.Manager.AddAssociation(Properties.Settings.Default.HomeID, node, 1, 13);
+            //Console.WriteLine("Attempting to Refresh Node " + node.ToString() + " Info...");
+            //MainForm.Manager.RefreshNodeInfo(Properties.Settings.Default.HomeID, node);
+            //Console.WriteLine("Association Attempt Complete.");
+        }
+
+        private void btnDeck1Breach_Click(object sender, EventArgs e)
+        {
+            //byte node = btnDeck1Breach.NodeID;
+            //Console.WriteLine("Attempting to Associate Node " + node.ToString() + " with Controller...");
+            //MainForm.Manager.AddAssociation(Properties.Settings.Default.HomeID, node, 1, 13);
+            //Console.WriteLine("Attempting to Refresh Node " + node.ToString() + " Info...");
+            //MainForm.Manager.RefreshNodeInfo(Properties.Settings.Default.HomeID, node);
+            //Console.WriteLine("Association Attempt Complete.");
+        }
+
+        private void btnDeck2Motion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EngineeringScreen_Load(object sender, EventArgs e)
+        {
             SetButtonStatuses();
         }
     }

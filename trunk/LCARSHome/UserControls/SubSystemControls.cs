@@ -18,7 +18,7 @@ namespace LCARSHome.UserControls
             InitializeComponent();
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
-            bw.RunWorkerAsync();
+            //bw.RunWorkerAsync();
         }
 
 

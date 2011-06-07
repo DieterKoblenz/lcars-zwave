@@ -283,25 +283,51 @@ namespace LCARSHome
         {
             switch (Program._MainForm._alarmStatus)
             {
-                case Alarm.Disarmed:
-                    {
-                        break;
-                    }
-                case Alarm.Home:
-                    {
-                        break;
-                    }
                 case Alarm.Away:
                     {
                         switch (NodeID)
                         {
                             case 14:
+                            case 20:
+                                {
+                                    switch (Status)
+                                    {
+                                        case 255:
+                                            {
+                                                SetStatus(LCARSHome.Status.Red);
+                                                break;
+                                            }
+                                    }
+                                    break;
+                                }
+                            case 21:
+                            case 22:
                                 {
                                     switch (Status)
                                     {
                                         case 255:
                                             {
                                                 SetStatus(LCARSHome.Status.Blue);
+                                                break;
+                                            }
+                                    }
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case Alarm.Home:
+                    {
+                        switch (NodeID)
+                        {
+                            case 21:
+                            case 22:
+                                {
+                                    switch (Status)
+                                    {
+                                        case 255:
+                                            {
+                                                SetStatus(LCARSHome.Status.Red);
                                                 break;
                                             }
 

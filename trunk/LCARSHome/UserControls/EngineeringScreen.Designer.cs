@@ -575,7 +575,7 @@
             this.btnDeck2Breach.LeftSegments = 0;
             this.btnDeck2Breach.Location = new System.Drawing.Point(630, 265);
             this.btnDeck2Breach.Name = "btnDeck2Breach";
-            this.btnDeck2Breach.NodeID = ((byte)(15));
+            this.btnDeck2Breach.NodeID = ((byte)(21));
             this.btnDeck2Breach.Online = true;
             this.btnDeck2Breach.RightSegments = 0;
             this.btnDeck2Breach.RoundedLeft = true;
@@ -587,6 +587,7 @@
             this.btnDeck2Breach.TabIndex = 35;
             this.btnDeck2Breach.Text = "DECK 2 BREACH";
             this.btnDeck2Breach.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDeck2Breach.Click += new System.EventHandler(this.btnDeck2Breach_Click);
             // 
             // btnDeck2Motion
             // 
@@ -616,6 +617,7 @@
             this.btnDeck2Motion.TabIndex = 34;
             this.btnDeck2Motion.Text = "DECK 2 MOTION";
             this.btnDeck2Motion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDeck2Motion.Click += new System.EventHandler(this.btnDeck2Motion_Click);
             // 
             // btnDeck1Breach
             // 
@@ -633,7 +635,7 @@
             this.btnDeck1Breach.LeftSegments = 0;
             this.btnDeck1Breach.Location = new System.Drawing.Point(630, 169);
             this.btnDeck1Breach.Name = "btnDeck1Breach";
-            this.btnDeck1Breach.NodeID = ((byte)(11));
+            this.btnDeck1Breach.NodeID = ((byte)(22));
             this.btnDeck1Breach.Online = true;
             this.btnDeck1Breach.RightSegments = 0;
             this.btnDeck1Breach.RoundedLeft = true;
@@ -645,6 +647,7 @@
             this.btnDeck1Breach.TabIndex = 33;
             this.btnDeck1Breach.Text = "DECK 1 BREACH";
             this.btnDeck1Breach.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDeck1Breach.Click += new System.EventHandler(this.btnDeck1Breach_Click);
             // 
             // btnDeck1Motion
             // 
@@ -1082,10 +1085,10 @@
             // 
             this.subSystemControls1.BackColor = System.Drawing.Color.Black;
             this.subSystemControls1.Font = new System.Drawing.Font("LCARS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subSystemControls1.Location = new System.Drawing.Point(110, 426);
+            this.subSystemControls1.Location = new System.Drawing.Point(110, 414);
             this.subSystemControls1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.subSystemControls1.Name = "subSystemControls1";
-            this.subSystemControls1.Size = new System.Drawing.Size(903, 285);
+            this.subSystemControls1.Size = new System.Drawing.Size(900, 300);
             this.subSystemControls1.TabIndex = 56;
             this.subSystemControls1.Visible = false;
             // 
@@ -1136,6 +1139,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "EngineeringScreen";
             this.Size = new System.Drawing.Size(1024, 768);
+            this.Load += new System.EventHandler(this.EngineeringScreen_Load);
             this.ResumeLayout(false);
 
         }
