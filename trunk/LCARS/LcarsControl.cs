@@ -86,7 +86,7 @@ namespace Streambolics.Lcars
                                             }
                                         default:
                                             {
-                                                return Color.FromArgb(0xFF, 0xFF, 0xFF);
+                                                return Color.FromArgb(0x33, 0x00, 0x00);
                                             }
                                     }
                                 }

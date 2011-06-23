@@ -67,6 +67,7 @@
             this.elbo1 = new Streambolics.Lcars.Elbo();
             this.sound1 = new Streambolics.Lcars.Sound();
             this.subSystemControls1 = new LCARSHome.UserControls.SubSystemControls();
+            this.engineeringDiagnostic1 = new LCARSHome.UserControls.EngineeringDiagnostic();
             this.SuspendLayout();
             // 
             // elbo3
@@ -788,12 +789,13 @@
             this.btnInterface.RoundedLeft = true;
             this.btnInterface.RoundedRight = true;
             this.btnInterface.Size = new System.Drawing.Size(226, 42);
-            this.btnInterface.SoundFile = "Resources/Beep.wav";
+            this.btnInterface.SoundFile = "Resources/VariousBeeps.wav";
             this.btnInterface.SoundRepeatTimes = 1;
             this.btnInterface.SubFunction = Streambolics.Lcars.SubFunction.Primary;
             this.btnInterface.TabIndex = 16;
-            this.btnInterface.Text = "INTERFACE";
+            this.btnInterface.Text = "COMMIT NODES";
             this.btnInterface.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnInterface.Click += new System.EventHandler(this.btnInterface_Click);
             // 
             // btnZWave
             // 
@@ -1092,11 +1094,23 @@
             this.subSystemControls1.TabIndex = 56;
             this.subSystemControls1.Visible = false;
             // 
+            // engineeringDiagnostic1
+            // 
+            this.engineeringDiagnostic1.BackColor = System.Drawing.Color.Black;
+            this.engineeringDiagnostic1.Font = new System.Drawing.Font("LCARS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.engineeringDiagnostic1.Location = new System.Drawing.Point(110, 414);
+            this.engineeringDiagnostic1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.engineeringDiagnostic1.Name = "engineeringDiagnostic1";
+            this.engineeringDiagnostic1.Size = new System.Drawing.Size(900, 300);
+            this.engineeringDiagnostic1.TabIndex = 57;
+            this.engineeringDiagnostic1.Visible = false;
+            // 
             // EngineeringScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(3F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.engineeringDiagnostic1);
             this.Controls.Add(this.subSystemControls1);
             this.Controls.Add(this.elbo3);
             this.Controls.Add(this.btnDiagnostic);
@@ -1185,5 +1199,6 @@
         private Streambolics.Lcars.Button btnDiagnostic;
         private Streambolics.Lcars.Elbo elbo3;
         internal SubSystemControls subSystemControls1;
+        private EngineeringDiagnostic engineeringDiagnostic1;
     }
 }

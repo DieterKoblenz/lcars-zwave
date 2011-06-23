@@ -94,8 +94,8 @@ namespace LCARSHome.UserControls
 
         private void button38_Click(object sender, EventArgs e)
         {
-            //_bw.RunWorkerAsync();
-            MainForm.Manager.WriteConfig(Properties.Settings.Default.HomeID);
+            engineeringDiagnostic1.Visible = !engineeringDiagnostic1.Visible;
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -238,6 +238,11 @@ namespace LCARSHome.UserControls
         private void EngineeringScreen_Load(object sender, EventArgs e)
         {
             SetButtonStatuses();
+        }
+
+        private void btnInterface_Click(object sender, EventArgs e)
+        {
+            MainForm.Manager.WriteConfig(Properties.Settings.Default.HomeID);
         }
     }
 }

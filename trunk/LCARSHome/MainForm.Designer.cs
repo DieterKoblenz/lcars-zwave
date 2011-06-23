@@ -53,7 +53,7 @@
             this.securityScreen1.Location = new System.Drawing.Point(0, 2);
             this.securityScreen1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.securityScreen1.Name = "securityScreen1";
-            this.securityScreen1.Size = new System.Drawing.Size(1025, 768);
+            this.securityScreen1.Size = new System.Drawing.Size(1024, 600);
             this.securityScreen1.TabIndex = 4;
             this.securityScreen1.Visible = false;
             this.securityScreen1.Load += new System.EventHandler(this.securityScreen1_Load);
@@ -65,7 +65,7 @@
             this.communicationScreen1.Location = new System.Drawing.Point(0, 2);
             this.communicationScreen1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.communicationScreen1.Name = "communicationScreen1";
-            this.communicationScreen1.Size = new System.Drawing.Size(1024, 768);
+            this.communicationScreen1.Size = new System.Drawing.Size(1024, 600);
             this.communicationScreen1.TabIndex = 3;
             this.communicationScreen1.Visible = false;
             // 
@@ -78,7 +78,7 @@
             this.commandCodesScreen1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.commandCodesScreen1.Name = "commandCodesScreen1";
             this.commandCodesScreen1.PendingStatus = LCARSHome.Status.NotAStatus;
-            this.commandCodesScreen1.Size = new System.Drawing.Size(1025, 768);
+            this.commandCodesScreen1.Size = new System.Drawing.Size(1024, 600);
             this.commandCodesScreen1.TabIndex = 2;
             this.commandCodesScreen1.ToScreen = LCARSHome.Screen.HomeScreen;
             this.commandCodesScreen1.Visible = false;
@@ -90,7 +90,7 @@
             this.homeScreen1.Location = new System.Drawing.Point(0, 2);
             this.homeScreen1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.homeScreen1.Name = "homeScreen1";
-            this.homeScreen1.Size = new System.Drawing.Size(1025, 768);
+            this.homeScreen1.Size = new System.Drawing.Size(1024, 600);
             this.homeScreen1.TabIndex = 1;
             this.homeScreen1.Visible = false;
             // 
@@ -101,7 +101,7 @@
             this.lockScreen1.Location = new System.Drawing.Point(6, 2);
             this.lockScreen1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.lockScreen1.Name = "lockScreen1";
-            this.lockScreen1.Size = new System.Drawing.Size(1026, 768);
+            this.lockScreen1.Size = new System.Drawing.Size(1024, 600);
             this.lockScreen1.TabIndex = 0;
             this.lockScreen1.Visible = false;
             // 
@@ -112,7 +112,7 @@
             this.engineeringScreen1.Location = new System.Drawing.Point(0, 2);
             this.engineeringScreen1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.engineeringScreen1.Name = "engineeringScreen1";
-            this.engineeringScreen1.Size = new System.Drawing.Size(1024, 768);
+            this.engineeringScreen1.Size = new System.Drawing.Size(1024, 600);
             this.engineeringScreen1.TabIndex = 5;
             this.engineeringScreen1.Load += new System.EventHandler(this.engineeringScreen1_Load);
             // 
@@ -121,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(3F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.engineeringScreen1);
             this.Controls.Add(this.securityScreen1);
             this.Controls.Add(this.communicationScreen1);
