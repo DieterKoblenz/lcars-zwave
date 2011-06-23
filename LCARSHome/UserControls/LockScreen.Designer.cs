@@ -53,7 +53,7 @@
             this.elbo2.Online = true;
             this.elbo2.Orientation = System.Drawing.ContentAlignment.TopLeft;
             this.elbo2.RowHeight = 32;
-            this.elbo2.Size = new System.Drawing.Size(963, 762);
+            this.elbo2.Size = new System.Drawing.Size(963, 597);
             this.elbo2.SubFunction = Streambolics.Lcars.SubFunction.Elbo;
             this.elbo2.TabIndex = 4;
             this.elbo2.Text = "elbo2";
@@ -61,9 +61,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LCARSHome.Properties.Resources.ufp;
-            this.pictureBox1.Location = new System.Drawing.Point(146, 42);
+            this.pictureBox1.Location = new System.Drawing.Point(241, 49);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(819, 608);
+            this.pictureBox1.Size = new System.Drawing.Size(633, 463);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
@@ -78,7 +78,7 @@
             this.label1.Function = Streambolics.Lcars.Function.Database;
             this.label1.InAlert = false;
             this.label1.LeftSegments = 0;
-            this.label1.Location = new System.Drawing.Point(287, 656);
+            this.label1.Location = new System.Drawing.Point(285, 503);
             this.label1.Name = "label1";
             this.label1.Online = true;
             this.label1.RightSegments = 0;
@@ -106,6 +106,7 @@
             this.button1.LeftSegments = 0;
             this.button1.Location = new System.Drawing.Point(956, 3);
             this.button1.Name = "button1";
+            this.button1.NodeID = ((byte)(0));
             this.button1.Online = true;
             this.button1.RightSegments = 0;
             this.button1.RoundedLeft = false;
@@ -129,7 +130,7 @@
             this.Font = new System.Drawing.Font("LCARS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "LockScreen";
-            this.Size = new System.Drawing.Size(1024, 768);
+            this.Size = new System.Drawing.Size(1024, 600);
             this.VisibleChanged += new System.EventHandler(this.LockScreen_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

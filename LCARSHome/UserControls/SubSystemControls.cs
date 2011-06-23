@@ -32,6 +32,42 @@ namespace LCARSHome.UserControls
             Thread.Sleep(3000);
         }
 
+        public delegate void ProcessButtonStatus(Streambolics.Lcars.Button b, ZWaveStatus s);
+
+        internal void SetButtonStatus(Streambolics.Lcars.Button b)
+        {
+            ZWaveStatus s = Zwave.Status(b.NodeID);
+            ProcessButtonStatus myDelegate = new ProcessButtonStatus(ButtonStatusSafe);
+            myDelegate.Invoke(b, s);
+        }
+        
+        private void ButtonStatusSafe(Streambolics.Lcars.Button b, ZWaveStatus s)
+        {
+            if (s == ZWaveStatus.On)
+            {
+                b.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+                b.Online = true;
+            }
+            else if (s == ZWaveStatus.PartiallyOn)
+            {
+                b.SubFunction = Streambolics.Lcars.SubFunction.Color1;
+                b.Online = true;
+            }
+            else if (s == ZWaveStatus.Off)
+            {
+                b.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
+                b.Online = true;
+            }
+            else if (b.NodeID == 0)
+            {
+            }
+            else
+            {
+                b.Online = false;
+            }
+            b.Invalidate();
+        }
+
         internal void SetButtonStatuses()
         {
             #region Enabled & Ready
@@ -40,30 +76,13 @@ namespace LCARSHome.UserControls
                 foreach (Streambolics.Lcars.Button b in this.Controls)
                 {
                     b.BlinkState = false;
+                }
+                foreach (Streambolics.Lcars.Button b in this.Controls)
+                {
                     ZWaveStatus s = Zwave.Status(b.NodeID);
-                    if (s == ZWaveStatus.PartiallyOn)
-                    {
-                        b.SubFunction = Streambolics.Lcars.SubFunction.Primary;
-                        b.Online = true;
-                    }
-                    else if (s == ZWaveStatus.On)
-                    {
-                        b.SubFunction = Streambolics.Lcars.SubFunction.Color1;
-                        b.Online = true;
-                    }
-                    else if (s == ZWaveStatus.Off)
-                    {
-                        b.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
-                        b.Online = true;
-                    }
-                    else if (b.NodeID == 0)
-                    {
-                    }
-                    else
-                    {
-                        b.Online = false;
-                    }
-                    b.Invalidate();
+                    //Thread t = new Thread(() => SetButtonStatus(b));
+                    //t.Start();
+                    ButtonStatusSafe(b, s);
                 }
             }
             #endregion

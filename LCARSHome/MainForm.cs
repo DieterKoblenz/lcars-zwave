@@ -10,6 +10,7 @@ using System.Threading;
 using System.Speech.Recognition;
 using OpenZWaveDotNet;
 using SpeechLib;
+using System.IO;
 
 namespace LCARSHome
 {
@@ -46,9 +47,16 @@ namespace LCARSHome
             InitializeComponent();
             if (Properties.Settings.Default.SpeechRecognitionEnabled)
             {
-                engine.LoadGrammar(new DictationGrammar());
-                engine.SetInputToDefaultAudioDevice();
-                engine.RecognizeCompleted += new EventHandler<RecognizeCompletedEventArgs>(engine_RecognizeCompleted);
+                try
+                {
+                    engine.LoadGrammar(new DictationGrammar());
+                    engine.SetInputToDefaultAudioDevice();
+                    engine.RecognizeCompleted += new EventHandler<RecognizeCompletedEventArgs>(engine_RecognizeCompleted);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Unable to load Speech Recognition: " + ex.ToString());
+                }
             }
             if (Properties.Settings.Default.ZWaveEnabled)
             {
@@ -102,17 +110,21 @@ namespace LCARSHome
                     {
                         BusinessLogic.SetStatus(Status.Blue);
                     }
-                    else if (output.ToString().Contains("yellow") || output.ToString().Contains("eller") || output.ToString().Contains("shields"))
+                    else if (output.ToString().Contains("yellow") || output.ToString().Contains("eller") || output.ToString().Contains("shields") || output.ToString().Contains("arm home"))
                     {
                         //BusinessLogic.SetStatus(Status.Yellow);
                         BusinessLogic.SetAlarm(Alarm.Home);
                     }
-                    else if (output.ToString().Contains("stand") || output.ToString().Contains("cancel")||output.ToString().Contains("stand out") || output.ToString().Contains("standout")
+                    else if (output.ToString().Contains("force field") || output.ToString().Contains("arm away"))
+                    {
+                        BusinessLogic.SetAlarm(Alarm.Away);
+                    }
+                    else if (output.ToString().Contains("stand") || output.ToString().Contains("cancel") || output.ToString().Contains("stand out") || output.ToString().Contains("standout")
                         || output.ToString().Contains("stand then") || output.ToString().Contains("green"))
                     {
                         if (output.ToString().Contains("omega three"))
                         {
-                            BusinessLogic.SetStatus(Status.Green);  
+                            BusinessLogic.SetStatus(Status.Green);
                         }
                         else
                         {
@@ -148,6 +160,34 @@ namespace LCARSHome
                         Program._MainForm.LoadScreen(Screen.EngineeringScreen, Screen.NotAScreen);
                         Program._MainForm.engineeringScreen1.subSystemControls1.Visible = true;
                     }
+                    else if (
+                        (output.ToString().Contains("record") || output.ToString().Contains("log") || output.ToString().Contains("law") || output.ToString().Contains("report")) 
+                        & 
+                        (output.ToString().Contains("begin") || output.ToString().Contains("captain") || output.ToString().Contains("person"))
+                        )
+                    {
+                        Program._MainForm.LoadScreen(Screen.CommunicationScreen, Screen.NotAScreen);
+                        Program._MainForm.communicationScreen1.button10_Click(new object(), new EventArgs());
+                        this.sound1.PlayOnce("Resources\\DoubleBeep.wav");
+                    }
+                    else if (
+                    (output.ToString().Contains("record") || output.ToString().Contains("log") || output.ToString().Contains("law") || output.ToString().Contains("report"))
+                    &
+                    (output.ToString().Contains("end") || output.ToString().Contains("stop") || output.ToString().Contains("and") || output.ToString().Contains("pause"))
+                    )
+                    {
+                        Program._MainForm.LoadScreen(Screen.CommunicationScreen, Screen.NotAScreen);
+                        Program._MainForm.communicationScreen1.button10_Click(new object(), new EventArgs());
+                        this.sound1.PlayOnce("Resources\\DoubleBeep.wav");
+                    }
+                    else if (
+                    (output.ToString().Contains("coffee") || output.ToString().Contains("replicator"))
+                    &
+                    (output.ToString().Contains("hot") || output.ToString().Contains("pot") || output.ToString().Contains("on") || output.ToString().Contains("make"))
+                    )
+                    {
+                        Zwave.PowerOn(9);
+                    }
                     else if (output.ToString().Contains("engine"))
                     {
                         Program._MainForm.LoadScreen(Screen.EngineeringScreen, Screen.NotAScreen);
@@ -171,12 +211,19 @@ namespace LCARSHome
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoadScreen(Screen.LockScreen,Screen.NotAScreen);
-            this.timer1.Interval = 2000;
-            this.timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Start();
-            if (Properties.Settings.Default.SpeechRecognitionEnabled)
-                engine.RecognizeAsync();
+            try
+            {
+                LoadScreen(Screen.LockScreen, Screen.NotAScreen);
+                this.timer1.Interval = 2000;
+                this.timer1.Tick += new EventHandler(timer1_Tick);
+                timer1.Start();
+                if (Properties.Settings.Default.SpeechRecognitionEnabled)
+                    engine.RecognizeAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception in MainForm_Load: " + ex.ToString());
+            }
         }
         internal void SetStatus(Status status)
         {

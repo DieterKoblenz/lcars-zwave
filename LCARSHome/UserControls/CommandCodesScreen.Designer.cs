@@ -35,9 +35,6 @@
             this.button2 = new Streambolics.Lcars.Button();
             this.button3 = new Streambolics.Lcars.Button();
             this.button4 = new Streambolics.Lcars.Button();
-            this.button5 = new Streambolics.Lcars.Button();
-            this.button6 = new Streambolics.Lcars.Button();
-            this.button7 = new Streambolics.Lcars.Button();
             this.button8 = new Streambolics.Lcars.Button();
             this.button9 = new Streambolics.Lcars.Button();
             this.button10 = new Streambolics.Lcars.Button();
@@ -46,6 +43,9 @@
             this.button13 = new Streambolics.Lcars.Button();
             this.txtCommandCode = new System.Windows.Forms.TextBox();
             this.button14 = new Streambolics.Lcars.Button();
+            this.button6 = new Streambolics.Lcars.Button();
+            this.button5 = new Streambolics.Lcars.Button();
+            this.button7 = new Streambolics.Lcars.Button();
             this.SuspendLayout();
             // 
             // elbo2
@@ -59,13 +59,13 @@
             this.elbo2.ForeColor = System.Drawing.Color.White;
             this.elbo2.Function = Streambolics.Lcars.Function.Ancillary;
             this.elbo2.InAlert = false;
-            this.elbo2.Location = new System.Drawing.Point(2, 3);
+            this.elbo2.Location = new System.Drawing.Point(0, 3);
             this.elbo2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo2.Name = "elbo2";
             this.elbo2.Online = true;
             this.elbo2.Orientation = System.Drawing.ContentAlignment.TopLeft;
             this.elbo2.RowHeight = 32;
-            this.elbo2.Size = new System.Drawing.Size(963, 762);
+            this.elbo2.Size = new System.Drawing.Size(963, 597);
             this.elbo2.SubFunction = Streambolics.Lcars.SubFunction.Unavailable;
             this.elbo2.TabIndex = 4;
             this.elbo2.Text = "elbo2";
@@ -79,7 +79,7 @@
             this.label1.Function = Streambolics.Lcars.Function.Database;
             this.label1.InAlert = false;
             this.label1.LeftSegments = 0;
-            this.label1.Location = new System.Drawing.Point(276, 53);
+            this.label1.Location = new System.Drawing.Point(271, 36);
             this.label1.Name = "label1";
             this.label1.Online = true;
             this.label1.RightSegments = 0;
@@ -108,6 +108,7 @@
             this.button1.LeftSegments = 0;
             this.button1.Location = new System.Drawing.Point(501, 3);
             this.button1.Name = "button1";
+            this.button1.NodeID = ((byte)(0));
             this.button1.Online = true;
             this.button1.RightSegments = 0;
             this.button1.RoundedLeft = false;
@@ -134,13 +135,14 @@
             this.button2.Function = Streambolics.Lcars.Function.Ancillary;
             this.button2.InAlert = false;
             this.button2.LeftSegments = 0;
-            this.button2.Location = new System.Drawing.Point(331, 293);
+            this.button2.Location = new System.Drawing.Point(321, 193);
             this.button2.Name = "button2";
+            this.button2.NodeID = ((byte)(0));
             this.button2.Online = true;
             this.button2.RightSegments = 0;
             this.button2.RoundedLeft = true;
             this.button2.RoundedRight = true;
-            this.button2.Size = new System.Drawing.Size(140, 82);
+            this.button2.Size = new System.Drawing.Size(140, 76);
             this.button2.SoundFile = "/Resources/Beep.wav";
             this.button2.SoundRepeatTimes = 1;
             this.button2.SubFunction = Streambolics.Lcars.SubFunction.Color1;
@@ -163,13 +165,14 @@
             this.button3.Function = Streambolics.Lcars.Function.Ancillary;
             this.button3.InAlert = false;
             this.button3.LeftSegments = 0;
-            this.button3.Location = new System.Drawing.Point(477, 292);
+            this.button3.Location = new System.Drawing.Point(467, 192);
             this.button3.Name = "button3";
+            this.button3.NodeID = ((byte)(0));
             this.button3.Online = true;
             this.button3.RightSegments = 0;
             this.button3.RoundedLeft = true;
             this.button3.RoundedRight = true;
-            this.button3.Size = new System.Drawing.Size(140, 82);
+            this.button3.Size = new System.Drawing.Size(140, 76);
             this.button3.SoundFile = "/Resources/Beep.wav";
             this.button3.SoundRepeatTimes = 1;
             this.button3.SubFunction = Streambolics.Lcars.SubFunction.Color1;
@@ -192,13 +195,14 @@
             this.button4.Function = Streambolics.Lcars.Function.Ancillary;
             this.button4.InAlert = false;
             this.button4.LeftSegments = 0;
-            this.button4.Location = new System.Drawing.Point(623, 293);
+            this.button4.Location = new System.Drawing.Point(613, 193);
             this.button4.Name = "button4";
+            this.button4.NodeID = ((byte)(0));
             this.button4.Online = true;
             this.button4.RightSegments = 0;
             this.button4.RoundedLeft = true;
             this.button4.RoundedRight = true;
-            this.button4.Size = new System.Drawing.Size(140, 82);
+            this.button4.Size = new System.Drawing.Size(140, 76);
             this.button4.SoundFile = "/Resources/Beep.wav";
             this.button4.SoundRepeatTimes = 1;
             this.button4.SubFunction = Streambolics.Lcars.SubFunction.Color1;
@@ -206,93 +210,6 @@
             this.button4.Text = "3";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Black;
-            this.button5.Blink = false;
-            this.button5.BlinkInterval = 500;
-            this.button5.BlinkState = false;
-            this.button5.ChangeOnHover = false;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
-            this.button5.Font = new System.Drawing.Font("LCARS", 28F);
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Function = Streambolics.Lcars.Function.Ancillary;
-            this.button5.InAlert = false;
-            this.button5.LeftSegments = 0;
-            this.button5.Location = new System.Drawing.Point(477, 380);
-            this.button5.Name = "button5";
-            this.button5.Online = true;
-            this.button5.RightSegments = 0;
-            this.button5.RoundedLeft = true;
-            this.button5.RoundedRight = true;
-            this.button5.Size = new System.Drawing.Size(140, 82);
-            this.button5.SoundFile = "/Resources/Beep.wav";
-            this.button5.SoundRepeatTimes = 1;
-            this.button5.SubFunction = Streambolics.Lcars.SubFunction.Color1;
-            this.button5.TabIndex = 27;
-            this.button5.Text = "5";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Black;
-            this.button6.Blink = false;
-            this.button6.BlinkInterval = 500;
-            this.button6.BlinkState = false;
-            this.button6.ChangeOnHover = false;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
-            this.button6.Font = new System.Drawing.Font("LCARS", 28F);
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Function = Streambolics.Lcars.Function.Ancillary;
-            this.button6.InAlert = false;
-            this.button6.LeftSegments = 0;
-            this.button6.Location = new System.Drawing.Point(331, 381);
-            this.button6.Name = "button6";
-            this.button6.Online = true;
-            this.button6.RightSegments = 0;
-            this.button6.RoundedLeft = true;
-            this.button6.RoundedRight = true;
-            this.button6.Size = new System.Drawing.Size(140, 82);
-            this.button6.SoundFile = "/Resources/Beep.wav";
-            this.button6.SoundRepeatTimes = 1;
-            this.button6.SubFunction = Streambolics.Lcars.SubFunction.Color1;
-            this.button6.TabIndex = 28;
-            this.button6.Text = "4";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.Black;
-            this.button7.Blink = false;
-            this.button7.BlinkInterval = 500;
-            this.button7.BlinkState = false;
-            this.button7.ChangeOnHover = false;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
-            this.button7.Font = new System.Drawing.Font("LCARS", 28F);
-            this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Function = Streambolics.Lcars.Function.Ancillary;
-            this.button7.InAlert = false;
-            this.button7.LeftSegments = 0;
-            this.button7.Location = new System.Drawing.Point(623, 380);
-            this.button7.Name = "button7";
-            this.button7.Online = true;
-            this.button7.RightSegments = 0;
-            this.button7.RoundedLeft = true;
-            this.button7.RoundedRight = true;
-            this.button7.Size = new System.Drawing.Size(140, 82);
-            this.button7.SoundFile = "/Resources/Beep.wav";
-            this.button7.SoundRepeatTimes = 1;
-            this.button7.SubFunction = Streambolics.Lcars.SubFunction.Color1;
-            this.button7.TabIndex = 29;
-            this.button7.Text = "6";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -308,13 +225,14 @@
             this.button8.Function = Streambolics.Lcars.Function.Ancillary;
             this.button8.InAlert = false;
             this.button8.LeftSegments = 0;
-            this.button8.Location = new System.Drawing.Point(331, 468);
+            this.button8.Location = new System.Drawing.Point(321, 355);
             this.button8.Name = "button8";
+            this.button8.NodeID = ((byte)(0));
             this.button8.Online = true;
             this.button8.RightSegments = 0;
             this.button8.RoundedLeft = true;
             this.button8.RoundedRight = true;
-            this.button8.Size = new System.Drawing.Size(140, 82);
+            this.button8.Size = new System.Drawing.Size(140, 76);
             this.button8.SoundFile = "/Resources/Beep.wav";
             this.button8.SoundRepeatTimes = 1;
             this.button8.SubFunction = Streambolics.Lcars.SubFunction.Color1;
@@ -337,13 +255,14 @@
             this.button9.Function = Streambolics.Lcars.Function.Ancillary;
             this.button9.InAlert = false;
             this.button9.LeftSegments = 0;
-            this.button9.Location = new System.Drawing.Point(477, 468);
+            this.button9.Location = new System.Drawing.Point(467, 355);
             this.button9.Name = "button9";
+            this.button9.NodeID = ((byte)(0));
             this.button9.Online = true;
             this.button9.RightSegments = 0;
             this.button9.RoundedLeft = true;
             this.button9.RoundedRight = true;
-            this.button9.Size = new System.Drawing.Size(140, 82);
+            this.button9.Size = new System.Drawing.Size(140, 76);
             this.button9.SoundFile = "/Resources/Beep.wav";
             this.button9.SoundRepeatTimes = 1;
             this.button9.SubFunction = Streambolics.Lcars.SubFunction.Color1;
@@ -366,13 +285,14 @@
             this.button10.Function = Streambolics.Lcars.Function.Ancillary;
             this.button10.InAlert = false;
             this.button10.LeftSegments = 0;
-            this.button10.Location = new System.Drawing.Point(623, 468);
+            this.button10.Location = new System.Drawing.Point(613, 355);
             this.button10.Name = "button10";
+            this.button10.NodeID = ((byte)(0));
             this.button10.Online = true;
             this.button10.RightSegments = 0;
             this.button10.RoundedLeft = true;
             this.button10.RoundedRight = true;
-            this.button10.Size = new System.Drawing.Size(140, 82);
+            this.button10.Size = new System.Drawing.Size(140, 76);
             this.button10.SoundFile = "/Resources/Beep.wav";
             this.button10.SoundRepeatTimes = 1;
             this.button10.SubFunction = Streambolics.Lcars.SubFunction.Color1;
@@ -395,13 +315,14 @@
             this.button11.Function = Streambolics.Lcars.Function.Ancillary;
             this.button11.InAlert = false;
             this.button11.LeftSegments = 0;
-            this.button11.Location = new System.Drawing.Point(477, 556);
+            this.button11.Location = new System.Drawing.Point(467, 437);
             this.button11.Name = "button11";
+            this.button11.NodeID = ((byte)(0));
             this.button11.Online = true;
             this.button11.RightSegments = 0;
             this.button11.RoundedLeft = true;
             this.button11.RoundedRight = true;
-            this.button11.Size = new System.Drawing.Size(140, 82);
+            this.button11.Size = new System.Drawing.Size(140, 76);
             this.button11.SoundFile = "/Resources/Beep.wav";
             this.button11.SoundRepeatTimes = 1;
             this.button11.SubFunction = Streambolics.Lcars.SubFunction.Color1;
@@ -424,13 +345,14 @@
             this.button12.Function = Streambolics.Lcars.Function.Ancillary;
             this.button12.InAlert = false;
             this.button12.LeftSegments = 0;
-            this.button12.Location = new System.Drawing.Point(477, 644);
+            this.button12.Location = new System.Drawing.Point(467, 519);
             this.button12.Name = "button12";
+            this.button12.NodeID = ((byte)(0));
             this.button12.Online = true;
             this.button12.RightSegments = 0;
             this.button12.RoundedLeft = true;
             this.button12.RoundedRight = true;
-            this.button12.Size = new System.Drawing.Size(140, 82);
+            this.button12.Size = new System.Drawing.Size(140, 76);
             this.button12.SoundFile = "/Resources/Beep.wav";
             this.button12.SoundRepeatTimes = 1;
             this.button12.SubFunction = Streambolics.Lcars.SubFunction.Color2;
@@ -454,13 +376,14 @@
             this.button13.Function = Streambolics.Lcars.Function.Ancillary;
             this.button13.InAlert = false;
             this.button13.LeftSegments = 0;
-            this.button13.Location = new System.Drawing.Point(623, 644);
+            this.button13.Location = new System.Drawing.Point(613, 519);
             this.button13.Name = "button13";
+            this.button13.NodeID = ((byte)(0));
             this.button13.Online = true;
             this.button13.RightSegments = 0;
             this.button13.RoundedLeft = true;
             this.button13.RoundedRight = true;
-            this.button13.Size = new System.Drawing.Size(140, 82);
+            this.button13.Size = new System.Drawing.Size(140, 76);
             this.button13.SoundFile = "/Resources/Beep.wav";
             this.button13.SoundRepeatTimes = 1;
             this.button13.SubFunction = Streambolics.Lcars.SubFunction.Primary;
@@ -472,7 +395,7 @@
             // txtCommandCode
             // 
             this.txtCommandCode.Font = new System.Drawing.Font("LCARS", 125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommandCode.Location = new System.Drawing.Point(331, 185);
+            this.txtCommandCode.Location = new System.Drawing.Point(322, 100);
             this.txtCommandCode.Multiline = true;
             this.txtCommandCode.Name = "txtCommandCode";
             this.txtCommandCode.PasswordChar = '*';
@@ -494,13 +417,14 @@
             this.button14.Function = Streambolics.Lcars.Function.Ancillary;
             this.button14.InAlert = false;
             this.button14.LeftSegments = 0;
-            this.button14.Location = new System.Drawing.Point(331, 644);
+            this.button14.Location = new System.Drawing.Point(321, 519);
             this.button14.Name = "button14";
+            this.button14.NodeID = ((byte)(0));
             this.button14.Online = true;
             this.button14.RightSegments = 0;
             this.button14.RoundedLeft = true;
             this.button14.RoundedRight = true;
-            this.button14.Size = new System.Drawing.Size(140, 82);
+            this.button14.Size = new System.Drawing.Size(140, 76);
             this.button14.SoundFile = "/Resources/Beep.wav";
             this.button14.SoundRepeatTimes = 1;
             this.button14.SubFunction = Streambolics.Lcars.SubFunction.Color2;
@@ -508,6 +432,96 @@
             this.button14.Text = "CANCEL";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Black;
+            this.button6.Blink = false;
+            this.button6.BlinkInterval = 500;
+            this.button6.BlinkState = false;
+            this.button6.ChangeOnHover = false;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
+            this.button6.Font = new System.Drawing.Font("LCARS", 28F);
+            this.button6.ForeColor = System.Drawing.Color.Black;
+            this.button6.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button6.InAlert = false;
+            this.button6.LeftSegments = 0;
+            this.button6.Location = new System.Drawing.Point(321, 274);
+            this.button6.Name = "button6";
+            this.button6.NodeID = ((byte)(0));
+            this.button6.Online = true;
+            this.button6.RightSegments = 0;
+            this.button6.RoundedLeft = true;
+            this.button6.RoundedRight = true;
+            this.button6.Size = new System.Drawing.Size(140, 76);
+            this.button6.SoundFile = "/Resources/Beep.wav";
+            this.button6.SoundRepeatTimes = 1;
+            this.button6.SubFunction = Streambolics.Lcars.SubFunction.Color1;
+            this.button6.TabIndex = 28;
+            this.button6.Text = "4";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Black;
+            this.button5.Blink = false;
+            this.button5.BlinkInterval = 500;
+            this.button5.BlinkState = false;
+            this.button5.ChangeOnHover = false;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
+            this.button5.Font = new System.Drawing.Font("LCARS", 28F);
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button5.InAlert = false;
+            this.button5.LeftSegments = 0;
+            this.button5.Location = new System.Drawing.Point(467, 273);
+            this.button5.Name = "button5";
+            this.button5.NodeID = ((byte)(0));
+            this.button5.Online = true;
+            this.button5.RightSegments = 0;
+            this.button5.RoundedLeft = true;
+            this.button5.RoundedRight = true;
+            this.button5.Size = new System.Drawing.Size(140, 76);
+            this.button5.SoundFile = "/Resources/Beep.wav";
+            this.button5.SoundRepeatTimes = 1;
+            this.button5.SubFunction = Streambolics.Lcars.SubFunction.Color1;
+            this.button5.TabIndex = 27;
+            this.button5.Text = "5";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Black;
+            this.button7.Blink = false;
+            this.button7.BlinkInterval = 500;
+            this.button7.BlinkState = false;
+            this.button7.ChangeOnHover = false;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.ElboOrientation = System.Drawing.ContentAlignment.TopLeft;
+            this.button7.Font = new System.Drawing.Font("LCARS", 28F);
+            this.button7.ForeColor = System.Drawing.Color.Black;
+            this.button7.Function = Streambolics.Lcars.Function.Ancillary;
+            this.button7.InAlert = false;
+            this.button7.LeftSegments = 0;
+            this.button7.Location = new System.Drawing.Point(613, 273);
+            this.button7.Name = "button7";
+            this.button7.NodeID = ((byte)(0));
+            this.button7.Online = true;
+            this.button7.RightSegments = 0;
+            this.button7.RoundedLeft = true;
+            this.button7.RoundedRight = true;
+            this.button7.Size = new System.Drawing.Size(140, 76);
+            this.button7.SoundFile = "/Resources/Beep.wav";
+            this.button7.SoundRepeatTimes = 1;
+            this.button7.SubFunction = Streambolics.Lcars.SubFunction.Color1;
+            this.button7.TabIndex = 29;
+            this.button7.Text = "6";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // CommandCodesScreen
             // 
@@ -534,7 +548,7 @@
             this.Font = new System.Drawing.Font("LCARS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "CommandCodesScreen";
-            this.Size = new System.Drawing.Size(1024, 768);
+            this.Size = new System.Drawing.Size(1024, 600);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -549,9 +563,6 @@
         private Streambolics.Lcars.Button button2;
         private Streambolics.Lcars.Button button3;
         private Streambolics.Lcars.Button button4;
-        private Streambolics.Lcars.Button button5;
-        private Streambolics.Lcars.Button button6;
-        private Streambolics.Lcars.Button button7;
         private Streambolics.Lcars.Button button8;
         private Streambolics.Lcars.Button button9;
         private Streambolics.Lcars.Button button10;
@@ -560,5 +571,8 @@
         private Streambolics.Lcars.Button button13;
         private System.Windows.Forms.TextBox txtCommandCode;
         private Streambolics.Lcars.Button button14;
+        private Streambolics.Lcars.Button button6;
+        private Streambolics.Lcars.Button button5;
+        private Streambolics.Lcars.Button button7;
     }
 }

@@ -53,9 +53,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LCARSHome.Properties.Resources.ufp;
-            this.pictureBox1.Location = new System.Drawing.Point(160, 146);
+            this.pictureBox1.Location = new System.Drawing.Point(286, 146);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(819, 608);
+            this.pictureBox1.Size = new System.Drawing.Size(542, 424);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
@@ -77,6 +77,7 @@
             this.button6.Location = new System.Drawing.Point(458, 87);
             this.button6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button6.Name = "button6";
+            this.button6.NodeID = ((byte)(0));
             this.button6.Online = true;
             this.button6.RightSegments = 0;
             this.button6.RoundedLeft = false;
@@ -105,6 +106,7 @@
             this.button5.Location = new System.Drawing.Point(434, 108);
             this.button5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button5.Name = "button5";
+            this.button5.NodeID = ((byte)(0));
             this.button5.Online = true;
             this.button5.RightSegments = 0;
             this.button5.RoundedLeft = false;
@@ -136,7 +138,7 @@
             this.dateLabel1.Style = Streambolics.Lcars.DateStyle.StarDate;
             this.dateLabel1.SubFunction = Streambolics.Lcars.SubFunction.Elbo;
             this.dateLabel1.TabIndex = 22;
-            this.dateLabel1.Text = "[-4] 88492.92 22:00:16";
+            this.dateLabel1.Text = "[-4] 88555.98 22:23:35";
             // 
             // elbo3
             // 
@@ -149,13 +151,13 @@
             this.elbo3.ForeColor = System.Drawing.Color.White;
             this.elbo3.Function = Streambolics.Lcars.Function.MultiDisplay;
             this.elbo3.InAlert = false;
-            this.elbo3.Location = new System.Drawing.Point(2, 658);
+            this.elbo3.Location = new System.Drawing.Point(2, 543);
             this.elbo3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.elbo3.Name = "elbo3";
             this.elbo3.Online = true;
             this.elbo3.Orientation = System.Drawing.ContentAlignment.BottomLeft;
             this.elbo3.RowHeight = 32;
-            this.elbo3.Size = new System.Drawing.Size(102, 107);
+            this.elbo3.Size = new System.Drawing.Size(102, 47);
             this.elbo3.SubFunction = Streambolics.Lcars.SubFunction.Color1;
             this.elbo3.TabIndex = 20;
             this.elbo3.Text = "elbo3";
@@ -174,8 +176,9 @@
             this.btnExit.Function = Streambolics.Lcars.Function.MultiDisplay;
             this.btnExit.InAlert = false;
             this.btnExit.LeftSegments = 0;
-            this.btnExit.Location = new System.Drawing.Point(0, 620);
+            this.btnExit.Location = new System.Drawing.Point(0, 505);
             this.btnExit.Name = "btnExit";
+            this.btnExit.NodeID = ((byte)(0));
             this.btnExit.Online = true;
             this.btnExit.RightSegments = 0;
             this.btnExit.RoundedLeft = false;
@@ -203,8 +206,9 @@
             this.button13.Function = Streambolics.Lcars.Function.MultiDisplay;
             this.button13.InAlert = false;
             this.button13.LeftSegments = 0;
-            this.button13.Location = new System.Drawing.Point(0, 496);
+            this.button13.Location = new System.Drawing.Point(0, 381);
             this.button13.Name = "button13";
+            this.button13.NodeID = ((byte)(0));
             this.button13.Online = true;
             this.button13.RightSegments = 0;
             this.button13.RoundedLeft = false;
@@ -232,13 +236,14 @@
             this.button11.Function = Streambolics.Lcars.Function.MultiDisplay;
             this.button11.InAlert = false;
             this.button11.LeftSegments = 0;
-            this.button11.Location = new System.Drawing.Point(0, 362);
+            this.button11.Location = new System.Drawing.Point(0, 302);
             this.button11.Name = "button11";
+            this.button11.NodeID = ((byte)(0));
             this.button11.Online = true;
             this.button11.RightSegments = 0;
             this.button11.RoundedLeft = false;
             this.button11.RoundedRight = false;
-            this.button11.Size = new System.Drawing.Size(104, 128);
+            this.button11.Size = new System.Drawing.Size(104, 73);
             this.button11.SoundFile = "Resources\\DoubleBeep.wav";
             this.button11.SoundRepeatTimes = 1;
             this.button11.SubFunction = Streambolics.Lcars.SubFunction.Color1;
@@ -261,8 +266,9 @@
             this.button10.Function = Streambolics.Lcars.Function.MultiDisplay;
             this.button10.InAlert = false;
             this.button10.LeftSegments = 0;
-            this.button10.Location = new System.Drawing.Point(0, 534);
+            this.button10.Location = new System.Drawing.Point(0, 419);
             this.button10.Name = "button10";
+            this.button10.NodeID = ((byte)(0));
             this.button10.Online = true;
             this.button10.RightSegments = 0;
             this.button10.RoundedLeft = false;
@@ -290,8 +296,9 @@
             this.button8.Function = Streambolics.Lcars.Function.MultiDisplay;
             this.button8.InAlert = false;
             this.button8.LeftSegments = 0;
-            this.button8.Location = new System.Drawing.Point(0, 323);
+            this.button8.Location = new System.Drawing.Point(0, 263);
             this.button8.Name = "button8";
+            this.button8.NodeID = ((byte)(0));
             this.button8.Online = true;
             this.button8.RightSegments = 0;
             this.button8.RoundedLeft = false;
@@ -318,8 +325,9 @@
             this.button7.Function = Streambolics.Lcars.Function.MultiDisplay;
             this.button7.InAlert = false;
             this.button7.LeftSegments = 0;
-            this.button7.Location = new System.Drawing.Point(0, 248);
+            this.button7.Location = new System.Drawing.Point(0, 188);
             this.button7.Name = "button7";
+            this.button7.NodeID = ((byte)(0));
             this.button7.Online = true;
             this.button7.RightSegments = 0;
             this.button7.RoundedLeft = false;
@@ -372,6 +380,7 @@
             this.button2.Location = new System.Drawing.Point(458, 108);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button2.Name = "button2";
+            this.button2.NodeID = ((byte)(0));
             this.button2.Online = true;
             this.button2.RightSegments = 0;
             this.button2.RoundedLeft = false;
@@ -400,6 +409,7 @@
             this.button4.Location = new System.Drawing.Point(688, 70);
             this.button4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button4.Name = "button4";
+            this.button4.NodeID = ((byte)(0));
             this.button4.Online = true;
             this.button4.RightSegments = 0;
             this.button4.RoundedLeft = false;
@@ -428,6 +438,7 @@
             this.button1.Location = new System.Drawing.Point(434, 70);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
+            this.button1.NodeID = ((byte)(0));
             this.button1.Online = true;
             this.button1.RightSegments = 0;
             this.button1.RoundedLeft = false;
@@ -456,7 +467,7 @@
             this.elbo2.Online = true;
             this.elbo2.Orientation = System.Drawing.ContentAlignment.TopLeft;
             this.elbo2.RowHeight = 32;
-            this.elbo2.Size = new System.Drawing.Size(430, 134);
+            this.elbo2.Size = new System.Drawing.Size(430, 74);
             this.elbo2.SubFunction = Streambolics.Lcars.SubFunction.Elbo;
             this.elbo2.TabIndex = 4;
             this.elbo2.Text = "elbo2";
@@ -478,6 +489,7 @@
             this.button3.Location = new System.Drawing.Point(846, 70);
             this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button3.Name = "button3";
+            this.button3.NodeID = ((byte)(0));
             this.button3.Online = true;
             this.button3.RightSegments = 0;
             this.button3.RoundedLeft = false;
@@ -539,7 +551,7 @@
             this.Font = new System.Drawing.Font("LCARS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "HomeScreen";
-            this.Size = new System.Drawing.Size(1024, 768);
+            this.Size = new System.Drawing.Size(1024, 600);
             this.VisibleChanged += new System.EventHandler(this.HomeScreen_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

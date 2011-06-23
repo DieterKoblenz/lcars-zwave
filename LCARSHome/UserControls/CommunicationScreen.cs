@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using System.Threading;
 using Sloppycode.net;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace LCARSHome.UserControls
 {
     public partial class CommunicationScreen : UserControl
     {
+        [DllImport("winmm.dll", EntryPoint = "mciSendStringA", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        private static extern int mciSendString(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
         private int _itemsFound = 0;
         private string _URL;
         private RssFeed _feed;
@@ -139,12 +142,6 @@ namespace LCARSHome.UserControls
                 backgroundWorker1.RunWorkerAsync();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            _URL = button5.Tag.ToString();
-            if (!backgroundWorker1.IsBusy)
-                backgroundWorker1.RunWorkerAsync();
-        }
         private void button6_Click(object sender, EventArgs e)
         {
             _URL = button6.Tag.ToString();
@@ -152,7 +149,41 @@ namespace LCARSHome.UserControls
                 backgroundWorker1.RunWorkerAsync();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        public void button10_Click(object sender, EventArgs e)
+        {
+            if (button10.SubFunction != Streambolics.Lcars.SubFunction.Color1)
+            {
+                button10.SubFunction = Streambolics.Lcars.SubFunction.Color1;
+                mciSendString("open new Type waveaudio Alias recsound", "", 0, 0);
+                mciSendString("record recsound", "", 0, 0);
+                Console.WriteLine("recording...");
+            }
+            else
+            {
+                button10.SubFunction = Streambolics.Lcars.SubFunction.Primary;
+                Console.WriteLine("end recording...");
+                string path = "C:\\Work\\LOG-" + DateTime.Now.ToString("MMddyyyyHHmmss") + ".wav";
+                mciSendString("save recsound " + path, "", 0, 0);
+                mciSendString("close recsound ", "", 0, 0);
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
         {
 
         }
